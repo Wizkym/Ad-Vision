@@ -1,6 +1,6 @@
 # Ad-Vision
 
-* This is an Augmented Reality application that renders ads on the screen. Using real-world objects/images a device recognizes, the application will be able to render different forms of media and objects on the screen providing useful information to the user. 
+This is an Augmented Reality application that renders ads on the screen. Using real-world objects/images a device recognizes, the application will be able to render different forms of media and objects on the screen providing useful information to the user. 
 
 # Continuous Integration
 Travis CI Status\
