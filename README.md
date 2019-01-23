@@ -21,6 +21,6 @@ Travis CI Status\
 * David Baker || [DavidDBaker](https://github.com/DavidDBaker) || Api integration + UI
 
 ## Trello
-![Trello](/assets/trello.png)
+![Trello](/assets/images/trello.png)
 
 ## Wireframe
