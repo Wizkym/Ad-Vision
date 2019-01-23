@@ -10,7 +10,7 @@ import {
   ViroConstants,
 } from 'react-viro';
 
-export default class HelloWorldSceneAR extends Component {
+class HelloWorldSceneAR extends Component {
 
   constructor() {
     super();
@@ -33,11 +33,11 @@ export default class HelloWorldSceneAR extends Component {
   }
 
   _onInitialized(state, reason) {
-    if (state == ViroConstants.TRACKING_NORMAL) {
+    if (state === ViroConstants.TRACKING_NORMAL) {
       this.setState({
         text : "Hello World!"
       });
-    } else if (state == ViroConstants.TRACKING_NONE) {
+    } else if (state === ViroConstants.TRACKING_NONE) {
       // Handle loss of tracking
     }
   }
