@@ -225,6 +225,7 @@ export default class ViroSample extends Component {
                         : this.setState({
                         noneChecked:!this.state.noneChecked
                         });
+        alert(topic);
     };
 }
 

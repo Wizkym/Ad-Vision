@@ -30,7 +30,7 @@ class HelloWorldSceneAR extends Component {
         this._onInitialized = this._onInitialized.bind(this);
 
         ViroMaterials.createMaterials({
-            grid: {
+            apple: {
                 diffuseTexture: require('../../assets/images/apple.jpg'),
             },
             power: {
@@ -42,17 +42,17 @@ class HelloWorldSceneAR extends Component {
         });
 
         ViroARTrackingTargets.createTargets({
-            "targetOne" : {
+            "apple" : {
                 source : require('../../assets/images/apple.jpg'),
                 orientation : "Up",
                 physicalWidth : 0.1 // real world width in meters
             },
-            "targetTwo" : {
+            "power" : {
                 source : require('../../assets/images/powerade.png'),
                 orientation : "Up",
                 physicalWidth : .05 // real world width in meters
             },
-            "targetThree" : {
+            "shop" : {
                 source : require('../../assets/images/kohls.jpg'),
                 orientation : "Up",
                 physicalWidth : .2 // real world width in meters
@@ -63,12 +63,12 @@ class HelloWorldSceneAR extends Component {
     render() {
         return (
             <ViroARScene onTrackingUpdated={this._onInitialized} >
-                <ViroARImageMarker target={"targetOne"} ><ViroBox position={[0, .5, 0]} scale={[.2, .2, .2]} materials={["grid"]} />
+                <ViroARImageMarker target={"apple"} ><ViroBox position={[0, .2, 0]} scale={[.2, .2, .2]} materials={["apple"]} />
                 </ViroARImageMarker>
-                <ViroARImageMarker target={"targetTwo"} ><ViroBox position={[0, .5, 0]} scale={[.2, .2, .2]} materials={["power"]} />
+                <ViroARImageMarker target={"power"} ><ViroBox position={[0, .5, 0]} scale={[.2, .2, .2]} materials={["power"]} />
                 </ViroARImageMarker>
                 {/*<ViroARImageMarker target={"targetThree"} ><ViroBox position={[0, .5, 0]} scale={[.2, .2, .2]} materials={["shop"]} />*/}
-                <ViroARImageMarker target={"targetThree"} >
+                <ViroARImageMarker target={"shop"} >
                     <ViroVideo
                         source={require('../../assets/images/lights.mp4')}
                         height={.2}
