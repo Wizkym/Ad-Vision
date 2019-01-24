@@ -127,6 +127,16 @@ export default class ViroSample extends Component {
     // Returns the Customize Screen
     _getCustomizeScreen = () => (
         <View style={styles.customMain}>
+            <View style={styles.welcomeContainer}>
+                <Image
+                    source={require('./assets/images/cust.jpg')}
+                    style={{position: 'absolute', top: -250, left: 0, right: 0, bottom: 0, height: 270, width: 380 }}
+                    fadeDuration={10}
+                />
+            </View>
+            <View>
+                <Text style={{fontFamily: 'Zapfino', fontWeight: 'bold', fontSize: 25}}>Customize your experience</Text>
+            </View>
             <View style={styles.topics}>
                 <Text>Home</Text>
                 <CheckBox onClick={() => this._checkBoxText('Home')}
@@ -215,8 +225,6 @@ export default class ViroSample extends Component {
                         : this.setState({
                         noneChecked:!this.state.noneChecked
                         });
-
-        alert(topic);
     };
 }
 
@@ -266,14 +274,14 @@ const styles = StyleSheet.create({
         fontSize : 18
     },
     customMain: {
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'space-around',
+        flex: 3,
+        flexDirection: 'column',
+        justifyContent: 'center',
         alignItems: 'stretch',
         paddingTop: 35,
-        paddingBottom: 25,
-        paddingLeft: 10,
-        paddingRight: 10
+        paddingBottom: 45,
+        paddingLeft: 0,
+        paddingRight: 0
     },
     topics: {
         height: 50,
@@ -281,7 +289,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'row',
-        padding: 10
+        padding: 10,
     },
     back: {
         flex: 1,
