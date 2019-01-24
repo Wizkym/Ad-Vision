@@ -9,10 +9,13 @@ Travis CI Status\
 ## Tools:
 
 * ViroReact
+* React Native
 * MongoDB
 * Express
 * Node.js
 * GraphQL
+* Cloud Vision API
+* Youtube Data API
 
 ## Team Members & Roles
 
