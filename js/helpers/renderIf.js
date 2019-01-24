@@ -1,7 +1,7 @@
-export default function renderIf(condition, content, countercontent) {
+export default function renderIf(condition, content) {
     if (condition) {
         return content;
     } else {
-        return countercontent;
+        return null;
     }
 }
