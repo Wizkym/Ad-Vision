@@ -15,7 +15,7 @@ Travis CI Status\
 * Node.js
 * GraphQL
 * Cloud Vision API
-* Youtube Data API
+* AWS Product Advertising API
 
 ## Team Members & Roles
 
