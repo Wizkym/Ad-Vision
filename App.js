@@ -1,28 +1,16 @@
-/**
- * Copyright (c) 2017-present, Viro, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- */
-
 import React, { Component } from 'react';
 import {
-    ActivityIndicator,
-    AppRegistry,
     Image,
     ScrollView,
     Text,
     View,
     StyleSheet,
-    PixelRatio,
     TouchableHighlight,
 } from 'react-native';
 
-import { ViroARSceneNavigator } from 'react-viro';
+import CheckBox from 'react-native-check-box'
+import { ViroARSceneNavigator, ViroSceneNavigator } from 'react-viro';
 import * as Animatable from 'react-native-animatable';
-import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 
 /*
  TODO: Insert your API key below
@@ -32,33 +20,32 @@ const sharedProps = {
 };
 
 // Sets the default scene you want for AR and VR
-const ARScene = require('./js/HelloWorldSceneAR');
+const ARScene = require('./js/scenes/HelloWorldSceneAR');
 const UNSET = "UNSET";
 const AR_NAVIGATOR_TYPE = "AR";
+const LOGIN_NAVIGATOR_TYPE ="LOGIN";
 
 // This determines which type of experience to launch in, or UNSET, if the user should
 // be presented with a choice of AR or VR. By default, we offer the user a choice.
 let defaultNavigatorType = UNSET;
 
-class App extends Component {
-    render() {
-        return <AppContainer />
-    }
-}
-
-export default App;
-
-class ViroSample extends Component {
+export default class ViroSample extends Component {
     constructor() {
         super();
         this.state = {
             navigator : defaultNavigatorType,
             sharedProps : sharedProps,
+            noneChecked: false,
+            homeIsChecked: false,
+            artIsChecked: false,
+            techIsChecked: false,
+            educationIsChecked: false
         };
 
         this._getExperienceSelector = this._getExperienceSelector.bind(this);
         this._getARNavigator = this._getARNavigator.bind(this);
         this._getExperienceButtonOnPress = this._getExperienceButtonOnPress.bind(this);
+        this._getCustomizeScreen = this._getCustomizeScreen.bind(this);
         this._exitViro = this._exitViro.bind(this);
     }
 
@@ -67,7 +54,9 @@ class ViroSample extends Component {
     render() {
         if (this.state.navigator === UNSET) {
             return this._getExperienceSelector();
-        }  else if (this.state.navigator === AR_NAVIGATOR_TYPE) {
+        }  else if (this.state.navigator === LOGIN_NAVIGATOR_TYPE) {
+            return this._getCustomizeScreen();
+        }else if (this.state.navigator === AR_NAVIGATOR_TYPE) {
             return this._getARNavigator();
         }
     }
@@ -81,6 +70,7 @@ class ViroSample extends Component {
                         <Image
                             source={require('./assets/images/vision.png')}
                             style={styles.welcomeImage}
+                            fadeDuration={10}
                         />
                     </View>
                     <View style={styles.outer} >
@@ -92,7 +82,7 @@ class ViroSample extends Component {
                                             Ad~Vision</Animatable.Text>
 
                             <TouchableHighlight style={styles.buttons}
-                                                onPress={() => this.props.navigation.navigate('Welcome')}
+                                                onPress={this._getExperienceButtonOnPress(LOGIN_NAVIGATOR_TYPE)}
                                                 underlayColor={'#68a0ff'} >
                                 <Animatable.Text animation="pulse"
                                                  easing="ease-out"
@@ -125,7 +115,7 @@ class ViroSample extends Component {
                 </View>
                 <View style={{position: 'absolute',  left: 5, right: 0, bottom: 15}}>
                     <TouchableHighlight style={styles.back}
-                                        onPress={this._exitViro}
+                                        onPress={this._getExperienceButtonOnPress(LOGIN_NAVIGATOR_TYPE)}
                                         underlayColor={'#00000000'} >
                         <Image source={require ('./assets/images/icon_left_w.png')} style={{height: 30, width: 40}}/>
                     </TouchableHighlight>
@@ -134,13 +124,76 @@ class ViroSample extends Component {
         );
     }
 
+    // Returns the Customize Screen
+    _getCustomizeScreen = () => (
+        <View style={styles.customMain}>
+            <View style={styles.welcomeContainer}>
+                <Image
+                    source={require('./assets/images/cust.jpg')}
+                    style={{position: 'absolute', top: -250, left: 0, right: 0, bottom: 0, height: 270, width: 380 }}
+                    fadeDuration={10}
+                />
+            </View>
+            <View>
+                <Text style={{fontFamily: 'Zapfino', fontWeight: 'bold', fontSize: 25}}>Customize your experience</Text>
+            </View>
+            <View style={styles.topics}>
+                <Text>Home</Text>
+                <CheckBox onClick={() => this._checkBoxText('Home')}
+                      isChecked={this.state.homeIsChecked}
+                      leftText={"Home"}/>
+            </View>
+            <View style={styles.topics}>
+                <Text>Technology</Text>
+                <CheckBox onClick={() => this._checkBoxText('Technology')}
+                          isChecked={this.state.techIsChecked}
+                          leftText={"Technology"}/>
+            </View>
+            <View style={styles.topics}>
+                <Text>Art</Text>
+                <CheckBox onClick={() => this._checkBoxText('Art')}
+                          isChecked={this.state.artIsChecked}
+                          leftText={"Art"}/>
+            </View>
+            <View style={styles.topics}>
+                <Text>Education</Text>
+                <CheckBox onClick={() => this._checkBoxText('Education')}
+                          isChecked={this.state.educationIsChecked}
+                          leftText={"Education"}/>
+            </View>
+            <View style={{position: 'absolute',  left: 5, right: 0, bottom: 15}}>
+                <TouchableHighlight style={styles.back}
+                                    onPress={this._getExperienceButtonOnPress(UNSET)}
+                                    underlayColor={'#00000000'} >
+                    <Image source={require ('./assets/images/icon_back.png')} style={{height: 30, width: 40}}/>
+                </TouchableHighlight>
+            </View>
+            <View style={{position: 'absolute', right: 0, bottom: 15, }}>
+                <TouchableHighlight style={styles.back}
+                                    onPress={this._getExperienceButtonOnPress(AR_NAVIGATOR_TYPE)}
+                                    underlayColor={'#00000000'} >
+                    <Text style={{fontWeight: 'bold', fontSize: 20}}>START</Text>
+                </TouchableHighlight>
+            </View>
+        </View>
+    );
+
+
     // This function returns an anonymous/lambda function to be used
     // by the experience selector buttons
     _getExperienceButtonOnPress(navigatorType) {
         return () => {
             this.setState({
                 navigator : navigatorType
-            })
+            });
+            if(navigatorType === 'UNSET') {
+                this.setState({
+                    noneChecked: false,
+                    homeIsChecked: false,
+                    artIsChecked: false,
+                    techIsChecked: false,
+                    educationIsChecked: false});
+            }
         }
     }
 
@@ -150,24 +203,31 @@ class ViroSample extends Component {
             navigator : UNSET
         })
     }
+
+    // Checkbox Function
+    _checkBoxText = (topic) => {
+        topic === 'Home'?
+            this.setState({
+                homeIsChecked:!this.state.homeIsChecked
+            })
+            : topic === 'Technology'?
+                this.setState({
+                    techIsChecked:!this.state.techIsChecked
+                })
+                : topic === 'Art'?
+                    this.setState({
+                        artIsChecked:!this.state.artIsChecked
+                    })
+                    : topic === 'Education'?
+                        this.setState({
+                            educationIsChecked:!this.state.educationIsChecked
+                        })
+                        : this.setState({
+                        noneChecked:!this.state.noneChecked
+                        });
+        alert(topic);
+    };
 }
-
-class CustomizeScreen extends Component {
-    render() {
-        return (
-            <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-                <Text>Customize Me</Text>
-            </View>
-        )
-    }
-}
-
-const AppSwitchNavigator = createSwitchNavigator({
-    Welcome: {screen: ViroSample},
-    Customize: {screen: CustomizeScreen}
-});
-
-const AppContainer = createAppContainer(AppSwitchNavigator);
 
 const styles = StyleSheet.create({
     viroContainer :{
@@ -189,7 +249,7 @@ const styles = StyleSheet.create({
     },
     welcomeImage: {
         width: 100,
-        height: 80,
+        height: 95,
         resizeMode: 'contain',
         marginTop: 3,
         marginLeft: -10,
@@ -213,6 +273,24 @@ const styles = StyleSheet.create({
         color:'#000',
         textAlign:'center',
         fontSize : 18
+    },
+    customMain: {
+        flex: 3,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'stretch',
+        paddingTop: 35,
+        paddingBottom: 45,
+        paddingLeft: 0,
+        paddingRight: 0
+    },
+    topics: {
+        height: 50,
+        backgroundColor: 'skyblue',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'row',
+        padding: 10,
     },
     back: {
         flex: 1,
