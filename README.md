@@ -24,3 +24,4 @@ Travis CI Status\
 ![Trello](/assets/images/trello.png)
 
 ## Wireframe
+![Layout](/assets/images/layout.jpg)
