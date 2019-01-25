@@ -20,7 +20,7 @@ Travis CI Status\
 ## Team Members & Roles
 
 * Kelvin Jones || [Wizkym](https://github.com/Wizkym) || Viro-React implementation + 3D component creation
-* George Rincon || [grincon0](https://github.com/grincon0) || Database implementation + 3D component creation
+* George Rincon || [grincon0](https://github.com/grincon0) || API/Database implementation + 3D component creation
 * David Baker || [DavidDBaker](https://github.com/DavidDBaker) || 3D component testing + XCode Deployement
 
 ## Trello
