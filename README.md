@@ -15,13 +15,13 @@ Travis CI Status\
 * Node.js
 * GraphQL
 * Cloud Vision API
-* Youtube Data API
+* AWS Product Advertising API
 
 ## Team Members & Roles
 
-* Kelvin Jones || [Wizkym](https://github.com/Wizkym) || Authentication + database setup
-* George Rincon || [grincon0](https://github.com/grincon0) || Unity + Wikitude Development
-* David Baker || [DavidDBaker](https://github.com/DavidDBaker) || Api integration + UI
+* Kelvin Jones || [Wizkym](https://github.com/Wizkym) || Viro-React implementation + 3D component creation
+* George Rincon || [grincon0](https://github.com/grincon0) || API/Database implementation + 3D component creation
+* David Baker || [DavidDBaker](https://github.com/DavidDBaker) || 3D component testing + XCode Deployement
 
 ## Trello
 ![Trello](/js/res/trello.png)
