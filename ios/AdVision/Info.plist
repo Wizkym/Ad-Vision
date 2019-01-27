@@ -61,5 +61,7 @@
 		<string>Orbitron-Medium.ttf</string>
 		<string>Orbitron-Regular.ttf</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Used for AR/VR</string>
 </dict>
 </plist>
