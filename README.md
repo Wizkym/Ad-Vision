@@ -9,10 +9,13 @@ Travis CI Status\
 ## Tools:
 
 * ViroReact
+* React Native
 * MongoDB
 * Express
 * Node.js
 * GraphQL
+* Cloud Vision API
+* Youtube Data API
 
 ## Team Members & Roles
 
@@ -21,6 +24,8 @@ Travis CI Status\
 * David Baker || [DavidDBaker](https://github.com/DavidDBaker) || Api integration + UI
 
 ## Trello
-![Trello](/assets/images/trello.png)
+![Trello](/js/res/trello.png)
 
 ## Wireframe
+![Layout](/js/res/layout.jpg)
+

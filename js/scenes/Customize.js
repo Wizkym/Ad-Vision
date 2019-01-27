@@ -1,52 +1,71 @@
 import React, { Component } from 'react';
 import {
-    ActivityIndicator,
-    AppRegistry,
     Image,
-    ScrollView,
     Text,
     View,
-    StyleSheet,
     TouchableHighlight,
 } from 'react-native';
 
-const ARScene = require('./HelloWorldSceneAR');
+import styles from '../../assets/styles/styles';
+import CheckBox from 'react-native-check-box'
+
+const UNSET = "UNSET";
+const AR_NAVIGATOR_TYPE = "AR";
+
 
 class Customize extends Component {
-    constructor() {
-        super();
-        this._switchToAR = this._switchToAR.bind(this)
-    }
-
-    render () {
+    render() {
         return (
-                <View style={{flex: 1}}>
-                    <View style={{position: 'absolute', backgroundColor:"#ffffff22", left: 30, right: 30, top: 30, alignItems: 'center'}}>
-                        <Text style={{fontSize:12, color:"#ffffff"}}>Tracking initialized.</Text>
-                    </View>
+            <View style={styles.customMain}>
+                <View style={styles.welcomeContainer}>
+                    <Image source={require('../res/cust.jpg')}
+                           style={{position: 'absolute', top: -250, left: 0, right: 0, bottom: 0, height: 270, width: 380 }}
+                           fadeDuration={10}/>
                 </View>
+                <View>
+                    <Text style={{fontFamily: 'Zapfino', fontWeight: 'bold', fontSize: 25}}>Customize your experience</Text>
+                </View>
+                <View style={styles.topics}>
+                    <Text>Home</Text>
+                    <CheckBox onClick={() => this.props._checkBoxText('Home')}
+                              isChecked={this.props.homeIsChecked}
+                              leftText={"Home"}/>
+                </View>
+                <View style={styles.topics}>
+                    <Text>Technology</Text>
+                    <CheckBox onClick={() => this.props._checkBoxText('Technology')}
+                              isChecked={this.props.techIsChecked}
+                              leftText={"Technology"}/>
+                </View>
+                <View style={styles.topics}>
+                    <Text>Art</Text>
+                    <CheckBox onClick={() => this.props._checkBoxText('Art')}
+                              isChecked={this.props.artIsChecked}
+                              leftText={"Art"}/>
+                </View>
+                <View style={styles.topics}>
+                    <Text>Education</Text>
+                    <CheckBox onClick={() => this.props._checkBoxText('Education')}
+                              isChecked={this.props.educationIsChecked}
+                              leftText={"Education"}/>
+                </View>
+                <View style={{position: 'absolute',  left: 5, right: 0, bottom: 15}}>
+                    <TouchableHighlight style={styles.back}
+                                        onPress={() => this.props._getExperienceButtonOnPress(UNSET)}
+                                        underlayColor={'#00000000'} >
+                        <Image source={require ('../res/icon_back.png')} style={{height: 30, width: 40}}/>
+                    </TouchableHighlight>
+                </View>
+                <View style={{position: 'absolute', right: 0, bottom: 15, }}>
+                    <TouchableHighlight style={styles.back}
+                                        onPress={() => this.props._getExperienceButtonOnPress(AR_NAVIGATOR_TYPE)}
+                                        underlayColor={'#00000000'} >
+                        <Text style={{fontWeight: 'bold', fontSize: 20}}>START</Text>
+                    </TouchableHighlight>
+                </View>
+            </View>
         )
-
-    }
-
-    _switchToAR () {
-        this.props.sceneNavigator.push({scene:ARScene});
     }
 }
 
-const styles = StyleSheet.create({
-    buttons : {
-        height: 65,
-        width: 100,
-        paddingTop:20,
-        paddingBottom:20,
-        marginTop: 10,
-        marginBottom: 10,
-        backgroundColor:'#68a0cf',
-        borderRadius: 10,
-        borderWidth: 1,
-        borderColor: '#fff',
-    }
-});
-
-module.exports = Customize;
+export default Customize;

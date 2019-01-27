@@ -6,17 +6,15 @@ import {StyleSheet} from 'react-native';
 
 import {
     ViroARScene,
-    ViroText,
     ViroConstants,
     ViroARImageMarker,
     ViroBox,
     ViroARTrackingTargets,
-    Viro360Image,
     ViroMaterials,
     ViroVideo
 } from 'react-viro';
 
-class HelloWorldSceneAR extends Component {
+class VisionAR extends Component {
 
     constructor() {
         super();
@@ -26,34 +24,36 @@ class HelloWorldSceneAR extends Component {
             text : "Initializing AR..."
         };
 
-        // bind 'this' to functions
+        // Bind 'this' to functions
         this._onInitialized = this._onInitialized.bind(this);
 
+       // Set media to display after image recognition
         ViroMaterials.createMaterials({
             apple: {
-                diffuseTexture: require('../../assets/images/apple.jpg'),
+                diffuseTexture: require('../res/apple.jpg'),
             },
             power: {
-                diffuseTexture: require('../../assets/images/powerade.png'),
+                diffuseTexture: require('../res/powerade.png'),
             },
             shop: {
-                diffuseTexture: require('../../assets/images/kohls.jpg'),
+                diffuseTexture: require('../res/kohls.jpg'),
             }
         });
 
+        // Set materials for image tracking
         ViroARTrackingTargets.createTargets({
             "apple" : {
-                source : require('../../assets/images/apple.jpg'),
+                source : require('../res/apple.jpg'),
                 orientation : "Up",
                 physicalWidth : 0.1 // real world width in meters
             },
             "power" : {
-                source : require('../../assets/images/powerade.png'),
+                source : require('../res/powerade.png'),
                 orientation : "Up",
                 physicalWidth : .05 // real world width in meters
             },
             "shop" : {
-                source : require('../../assets/images/kohls.jpg'),
+                source : require('../res/kohls.jpg'),
                 orientation : "Up",
                 physicalWidth : .2 // real world width in meters
             }
@@ -63,14 +63,14 @@ class HelloWorldSceneAR extends Component {
     render() {
         return (
             <ViroARScene onTrackingUpdated={this._onInitialized} >
-                <ViroARImageMarker target={"apple"} ><ViroBox position={[0, .2, 0]} scale={[.2, .2, .2]} materials={["apple"]} />
+                <ViroARImageMarker target={"apple"} ><ViroBox position={[0, .1, 0]} scale={[.1, .1, .1]} materials={["apple"]} />
                 </ViroARImageMarker>
                 <ViroARImageMarker target={"power"} ><ViroBox position={[0, .5, 0]} scale={[.2, .2, .2]} materials={["power"]} />
                 </ViroARImageMarker>
                 {/*<ViroARImageMarker target={"targetThree"} ><ViroBox position={[0, .5, 0]} scale={[.2, .2, .2]} materials={["shop"]} />*/}
                 <ViroARImageMarker target={"shop"} >
                     <ViroVideo
-                        source={require('../../assets/images/lights.mp4')}
+                        source={require('../res/lights.mp4')}
                         height={.2}
                         width={.2}
                         loop={true}
@@ -96,14 +96,4 @@ class HelloWorldSceneAR extends Component {
 
 }
 
-var styles = StyleSheet.create({
-    helloWorldTextStyle: {
-        fontFamily: 'Arial',
-        fontSize: 30,
-        color: '#ffffff',
-        textAlignVertical: 'center',
-        textAlign: 'center',
-    },
-});
-
-module.exports = HelloWorldSceneAR;
+module.exports = VisionAR;
