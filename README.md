@@ -24,7 +24,8 @@ Travis CI Status\
 * David Baker || [DavidDBaker](https://github.com/DavidDBaker) || 3D component testing + XCode Deployement
 
 ## Trello
-![Trello](/assets/images/trello.png)
+![Trello](/js/res/trello.png)
 
 ## Wireframe
-![Layout](/assets/images/layout.jpg)
+![Layout](/js/res/wire.png)
+

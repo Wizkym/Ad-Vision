@@ -36,6 +36,10 @@ node_modules/
 npm-debug.log
 yarn-error.log
 
+# Xcode
+ios/Pods/GVRSDK/Libraries/libGVRSDK.a
+ios/Pods/
+
 # BUCK
 buck-out/
 \.buckd/
