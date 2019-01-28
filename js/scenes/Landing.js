@@ -168,19 +168,19 @@ export default class Landing extends Component {
                 homeIsChecked:!this.state.homeIsChecked
             })
             : topic === 'Technology'?
-            this.setState({
-                techIsChecked:!this.state.techIsChecked
-            })
-            : topic === 'Art'?
                 this.setState({
-                    artIsChecked:!this.state.artIsChecked
+                    techIsChecked:!this.state.techIsChecked
                 })
-                : topic === 'Education'?
+                : topic === 'Art'?
                     this.setState({
-                        educationIsChecked:!this.state.educationIsChecked
+                        artIsChecked:!this.state.artIsChecked
                     })
-                    : this.setState({
-                        noneChecked:!this.state.noneChecked
-                    });
+                    : topic === 'Education'?
+                        this.setState({
+                            educationIsChecked:!this.state.educationIsChecked
+                        })
+                        : this.setState({
+                            noneChecked:!this.state.noneChecked
+                        });
     };
 }
