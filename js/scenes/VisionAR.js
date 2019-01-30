@@ -72,7 +72,7 @@ class VisionAR extends Component {
                 </ViroARImageMarker>
                 {/*<ViroARImageMarker target={"targetThree"} ><ViroBox position={[0, .5, 0]} scale={[.2, .2, .2]} materials={["shop"]} />*/}
                 <ViroARImageMarker target={"shop"} >
-                    {Fountain([0,0,0], 2000, 'fxparttinyglowy.png')}
+                    {Fountain([0,0,0], 3000, 'fxparttinyglowy.png')}
                     <ViroVideo
                         source={require('../res/lights.mp4')}
                         height={.2}
