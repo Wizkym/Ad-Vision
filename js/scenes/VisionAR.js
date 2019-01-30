@@ -2,6 +2,8 @@
 
 import React, { Component } from 'react';
 
+import particle from '../helpers/particle';
+
 import {StyleSheet} from 'react-native';
 
 import {
@@ -11,7 +13,8 @@ import {
     ViroBox,
     ViroARTrackingTargets,
     ViroMaterials,
-    ViroVideo
+    ViroVideo,
+    ViroParticleEmitter
 } from 'react-viro';
 
 class VisionAR extends Component {
@@ -23,10 +26,12 @@ class VisionAR extends Component {
         this.state = {
             text : "Initializing AR..."
         };
+        
 
         // Bind 'this' to functions
         this._onInitialized = this._onInitialized.bind(this);
 
+        this._onBufferStart = this._onBufferStart.bind(this);
        // Set media to display after image recognition
         ViroMaterials.createMaterials({
             apple: {
@@ -69,6 +74,7 @@ class VisionAR extends Component {
                 </ViroARImageMarker>
                 {/*<ViroARImageMarker target={"targetThree"} ><ViroBox position={[0, .5, 0]} scale={[.2, .2, .2]} materials={["shop"]} />*/}
                 <ViroARImageMarker target={"shop"} >
+                    {particle.Firework([0,0,0], null, "fxparttinyglowy.png", true)}
                     <ViroVideo
                         source={require('../res/lights.mp4')}
                         height={.2}
@@ -76,8 +82,7 @@ class VisionAR extends Component {
                         loop={true}
                         position={[0,0,0]}
                         materials={["shop"]}
-                       transformBehaviors={["billboardX"]}
-
+                       
                     />
                 </ViroARImageMarker>
             </ViroARScene>
@@ -92,6 +97,9 @@ class VisionAR extends Component {
         } else if (state === ViroConstants.TRACKING_NONE) {
             // Handle loss of tracking
         }
+    }
+    _onBufferStart(func){
+        func;
     }
 
 }
