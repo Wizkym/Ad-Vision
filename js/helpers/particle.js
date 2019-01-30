@@ -17,11 +17,12 @@ export function Fountain([...coordinates], duration, source) {
         position={coordinates}
         duration={duration}
         run={true}
+        loop={true}
 
         image={{
             source: myParticle,
-            height: 0.1,
-            width: 0.1,
+            height: 0.2,
+            width: 0.2,
         }}
     />
     );
