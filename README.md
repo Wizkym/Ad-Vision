@@ -20,8 +20,8 @@ Travis CI Status\
 ## Team Members & Roles
 
 * Kelvin Jones || [Wizkym](https://github.com/Wizkym) || Viro-React implementation + Cloud Vision API + 3D component creation
-* George Rincon || [grincon0](https://github.com/grincon0) || Database implementation + ParticleSFX + Component Development
-* David Baker || [DavidDBaker](https://github.com/DavidDBaker) || 3D component testing + AWS Product Ad API
+* George Rincon || [grincon0](https://github.com/grincon0) || Database implementation + ParticleSFX & Component Development
+* David Baker || [DavidDBaker](https://github.com/DavidDBaker) || 3D component testing + AWS Product Advertising API
 
 ## Trello
 ![Trello](/js/res/trello.png)
