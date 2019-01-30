@@ -2,6 +2,8 @@
 
 import React, { Component } from 'react';
 
+import { Fountain } from '../helpers/particle';
+
 import {StyleSheet} from 'react-native';
 
 import {
@@ -11,7 +13,8 @@ import {
     ViroBox,
     ViroARTrackingTargets,
     ViroMaterials,
-    ViroVideo
+    ViroVideo,
+    ViroParticleEmitter
 } from 'react-viro';
 
 class VisionAR extends Component {
@@ -69,6 +72,7 @@ class VisionAR extends Component {
                 </ViroARImageMarker>
                 {/*<ViroARImageMarker target={"targetThree"} ><ViroBox position={[0, .5, 0]} scale={[.2, .2, .2]} materials={["shop"]} />*/}
                 <ViroARImageMarker target={"shop"} >
+                    {Fountain([0,0,0], 2000, 'fxparttinyglowy.png')}
                     <ViroVideo
                         source={require('../res/lights.mp4')}
                         height={.2}
