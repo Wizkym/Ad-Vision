@@ -97,7 +97,7 @@ export default {
         );
 
     },
-    Firework([...coordinates], duration, source, loopBool) {
+    Firework([...coordinates], duration, source, loopBool, delay) {
 
         let myParticle = '';
         source === 'fxparttinyglowy.png' ?
@@ -112,7 +112,10 @@ export default {
             duration={duration}
             run={true}
             loop={loopBool}
+            delay={delay || 0}
             fixedToEmitter={false}
+
+
 
             image={{
                 source: myParticle,
@@ -168,7 +171,6 @@ export default {
         <ViroParticleEmitter
             position={coordinates}
             duration={duration}
-            delay={1000}
 
             run={true}
             loop={loopBool}
