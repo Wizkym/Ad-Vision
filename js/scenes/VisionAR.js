@@ -16,7 +16,8 @@ import {
     ViroARTrackingTargets,
     ViroMaterials,
     ViroVideo,
-    ViroParticleEmitter
+    ViroParticleEmitter,
+    ViroAnimations
 } from 'react-viro';
 
 class VisionAR extends Component {
@@ -28,7 +29,6 @@ class VisionAR extends Component {
         this.state = {
             text : "Initializing AR..."
         };
-        this.componentDidMount = this._componentDidMount.bind(this);
     
 
         // Bind 'this' to functions
@@ -71,6 +71,7 @@ class VisionAR extends Component {
     render() {
         return (
             <ViroARScene onTrackingUpdated={this._onInitialized} >
+            {anims.registerAll()}
                 <ViroARImageMarker target={"apple"} ><ViroBox position={[0, .1, 0]} scale={[.1, .1, .1]} materials={["apple"]} />
                 </ViroARImageMarker>
                 <ViroARImageMarker target={"power"} ><ViroBox position={[0, .5, 0]} scale={[.2, .2, .2]} materials={["power"]} />
@@ -78,17 +79,20 @@ class VisionAR extends Component {
                 {/*<ViroARImageMarker target={"targetThree"} ><ViroBox position={[0, .5, 0]} scale={[.2, .2, .2]} materials={["shop"]} />*/}
                 <ViroARImageMarker target={"shop"} >
                     {particle.Firework([0,0,0], 4200, "fxparttinyglowy.png", true)}
+
+                    <ViroBox position={[0, .1, 0]} opacity={0.1} scale={[.1, .1, .1]} materials={["apple"]}  animation={{name: 'animateScale', run: true}} />
                     <ViroVideo
+                    height={0.1}
+                    width={0.1}
                         source={require('../res/lights.mp4')}
-                        height={.2}
-                        width={.2}
+                        opacity={0.1}
                         loop={true}
                         position={[0,0,0]}
                         materials={["shop"]}
                         dragType={"FixedToWorld"}
                         transformBehaviors={["billboardX"]}
                         scale={[0, 0, 0]}
-                        animation={{name: 'GrowToScale', run:true}}
+                       
                        
                     />
                 </ViroARImageMarker>
@@ -108,9 +112,7 @@ class VisionAR extends Component {
     _onBufferStart(func){
         func;
     }
-    _componentDidMount(){
-        anims.registerAll();
-    }
+  
 
 }
 
