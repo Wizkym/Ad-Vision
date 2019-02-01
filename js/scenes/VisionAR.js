@@ -35,6 +35,9 @@ class VisionAR extends Component {
         this._onInitialized = this._onInitialized.bind(this);
 
         this._onBufferStart = this._onBufferStart.bind(this);
+        this._onAnimationFinished = this._onAnimationFinished.bind(this);
+
+
        // Set media to display after image recognition
         ViroMaterials.createMaterials({
             apple: {
@@ -78,23 +81,11 @@ class VisionAR extends Component {
                 </ViroARImageMarker>
                 {/*<ViroARImageMarker target={"targetThree"} ><ViroBox position={[0, .5, 0]} scale={[.2, .2, .2]} materials={["shop"]} />*/}
                 <ViroARImageMarker target={"shop"} >
-                    {particle.Firework([0,0,0], 4200, "fxparttinyglowy.png", true)}
+            
 
-                    <ViroBox position={[0, .1, 0]} opacity={0.1} scale={[.1, .1, .1]} materials={["apple"]}  animation={{name: 'animateScale', run: true}} />
-                    <ViroVideo
-                    height={0.1}
-                    width={0.1}
-                        source={require('../res/lights.mp4')}
-                        opacity={0.1}
-                        loop={true}
-                        position={[0,0,0]}
-                        materials={["shop"]}
-                        dragType={"FixedToWorld"}
-                        transformBehaviors={["billboardX"]}
-                        scale={[0, 0, 0]}
-                       
-                       
-                    />
+                    <ViroBox position={[0, 0, 0]} opacity={0.0} scale={[0.1, 0.1, 0.1]} materials={["apple"]}  animation={{name: 'plswrk', run: true, loop :true }} />
+                    {particle.Firework([0,0,0], 4200, "fxparttinyglowy.png", true)}
+                   
                 </ViroARImageMarker>
             </ViroARScene>
         );
@@ -111,6 +102,9 @@ class VisionAR extends Component {
     }
     _onBufferStart(func){
         func;
+    }
+    _onAnimationFinished(){
+        console.log('animation done');
     }
   
 
