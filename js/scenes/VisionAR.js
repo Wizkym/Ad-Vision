@@ -4,6 +4,8 @@ import React, { Component } from 'react';
 
 import particle from '../helpers/particle';
 
+import anims from '../helpers/animate';
+
 import {StyleSheet} from 'react-native';
 
 import {
@@ -26,7 +28,8 @@ class VisionAR extends Component {
         this.state = {
             text : "Initializing AR..."
         };
-        
+        this.componentDidMount = this._componentDidMount.bind(this);
+    
 
         // Bind 'this' to functions
         this._onInitialized = this._onInitialized.bind(this);
@@ -74,7 +77,7 @@ class VisionAR extends Component {
                 </ViroARImageMarker>
                 {/*<ViroARImageMarker target={"targetThree"} ><ViroBox position={[0, .5, 0]} scale={[.2, .2, .2]} materials={["shop"]} />*/}
                 <ViroARImageMarker target={"shop"} >
-                    {particle.Firework([0,0,0], null, "fxparttinyglowy.png", true)}
+                    {particle.Firework([0,0,0], 4200, "fxparttinyglowy.png", true)}
                     <ViroVideo
                         source={require('../res/lights.mp4')}
                         height={.2}
@@ -82,6 +85,10 @@ class VisionAR extends Component {
                         loop={true}
                         position={[0,0,0]}
                         materials={["shop"]}
+                        dragType={"FixedToWorld"}
+                        transformBehaviors={["billboardX"]}
+                        scale={[0, 0, 0]}
+                        animation={{name: 'GrowToScale', run:true}}
                        
                     />
                 </ViroARImageMarker>
@@ -100,6 +107,9 @@ class VisionAR extends Component {
     }
     _onBufferStart(func){
         func;
+    }
+    _componentDidMount(){
+        anims.registerAll();
     }
 
 }
