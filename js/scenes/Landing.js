@@ -132,9 +132,9 @@ export default class Landing extends Component {
                    techIsChecked={this.state.techIsChecked}
                    educationIsChecked={this.state.educationIsChecked}
                    _exitViro={this._exitViro}
+                   detectText={this.detectText}
         />
     );
-
 
     // This function returns an anonymous/lambda function to be used
     // by the experience selector buttons
@@ -183,4 +183,5 @@ export default class Landing extends Component {
                             noneChecked:!this.state.noneChecked
                         });
     };
+
 }
