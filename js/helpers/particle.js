@@ -22,9 +22,9 @@ export default {
 
             image={{
                 source: myParticle,
-                height: 0.2,
-                width: 0.2,
-                bloomThreshold: 1.0
+                height: 0.1,
+                width: 0.1,
+                bloomThreshold: 0.0
             }}
             spawnBehavior={{
                 particleLifetime: [1000, 1000],
@@ -48,9 +48,9 @@ export default {
 
             image={{
                 source: myParticle,
-                height: 0.2,
-                width: 0.2,
-                bloomThreshold: 1.0
+                height: 0.1,
+                width: 0.1,
+                bloomThreshold: 0
             }}
             spawnBehavior={{
                 particleLifetime: [1000, 3000],
@@ -66,33 +66,31 @@ export default {
                         { endValue: 1.0, interval: [4000, 5000] }
                     ]
                 },
-                rotation:{
-                    initialRange:[0, 360],
-                    factor:"Time",
-                    interpolation:[
-                      {endValue:1080, interval:[0,5000]},
+                rotation: {
+                    initialRange: [0, 360],
+                    factor: "Time",
+                    interpolation: [
+                        { endValue: 1080, interval: [0, 5000] },
                     ]
-                  },
-                  color: {
-                      initialRange: [0,360],
-                      factor: "Time",
-                      interpolation: [
-                          {endValue: "rgb(253, 19, 76)", interval:[0, 1000] },
-                          {endValue: "rgb(220, 4, 10)", interval:[2300, 3000] },
-                          {endValue: "rgb(5, 249, 85)", interval:[3333, 4000] }
-                         
-                         
-                      ]
-                  }
-                  
-            }}
-          
+                },
+                color: {
+                    initialRange: [0, 360],
+                    factor: "Time",
+                    interpolation: [
+                        { endValue: "rgb(253, 19, 76)", interval: [0, 1000] },
+                        { endValue: "rgb(220, 4, 10)", interval: [2300, 3000] },
+                        { endValue: "rgb(5, 249, 85)", interval: [3333, 4000] }
 
+
+                    ]
+                }
+
+            }}
             particlePhysics={{
                 velocity: {
                     initialRange: [[1, .5, 1], [1, 1, 0]]
                 },
-              
+
             }}
 
         />
@@ -106,67 +104,116 @@ export default {
             myParticle = particle1
             : myParticle = particle1;
 
-        const viroFireworkColors =["#ff2d2d","#42ff42","#00edff","#ffff00","#ffb5f8","#00ff1d","#00edff","#ffb14c", "#ff7cf4"];
-        let colorRand1 = viroFireworkColors[Math.floor((Math.random() * 5) + 0)];
-        let colorRand2 = viroFireworkColors[Math.floor((Math.random() * 5) + 0)];
-        let colorRand3 = viroFireworkColors[Math.floor((Math.random() * 5) + 0)];
 
-        let startColorRange1 = colorRand1;
-        let startColorRange2 = colorRand2;
-        let endColor = colorRand3;
-
+        return (
+        
         <ViroParticleEmitter
-        position={coordinates}
-        duration={4200}
-    
-        run={true}
-        loop={loopBool}
-        fixedToEmitter={true}
+            position={coordinates}
+            duration={duration}
+            run={true}
+            loop={loopBool}
+            fixedToEmitter={false}
 
-        image={{
-          source:myParticle,
-          height:0.2,
-          width:0.2,
-          bloomThreshold:0.0
-        }}
+            image={{
+                source: myParticle,
+                height: 0.1,
+                width: 0.1,
+                bloomThreshold: 0.0
+            }}
 
-        spawnBehavior={{
-          particleLifetime:[1200,1200],
-          emissionRatePerSecond:[0,0],
-          emissionBurst:[
-            {time:0, min:300, max:350, cycles:1}
-          ],
-          spawnVolume:{shape:"sphere", params:[0.15], spawnOnSurface:true},
-          maxParticles:3000
-        }}
+            spawnBehavior={{
+                particleLifetime: [duration / 2, duration / 2],
+                emissionRatePerSecond: [0, 0],
+                emissionBurst: [
+                    { time: 0, min: 300, max: 350, cycles: 1 }
+                ],
+                spawnVolume: { shape: "sphere", params: [0.15], spawnOnSurface: true },
+            }}
 
-        particleAppearance={{
-          opacity:{
-            initialRange:[1.0, 1.0],
-            factor:"Time",
-            interpolation:[
-              {endValue:0.0, interval:[800,1200]}
-            ]
-          },
+            particleAppearance={{
+                opacity: {
+                    initialRange: [1.0, 1.0],
+                    factor: "Time",
+                    interpolation: [
+                        { endValue: 0.0, interval: [800, 1200] }
+                    ]
+                },
 
-          color:{
-            initialRange:[startColorRange1, startColorRange2],
-            factor:"Time",
-            interpolation:[
-              {endValue:endColor, interval:[300,1200]}
-            ]
-          }
-        }}
+                color: {
+                    initialRange: ["#0c0093", "#92008b"],
+                    factor: "Time",
+                    interpolation: [
+                        { endValue: "#00ff1d", interval: [300, 1200] }
+                    ]
+                }
+            }}
 
-        particlePhysics={{
-          explosiveImpulse:{impulse:4000, position:[0,0,0], decelerationPeriod:1.0},
-        }}
-      />
+            particlePhysics={{
+                explosiveImpulse: { impulse: 0.12, position: [0, 0,0], decelerationPeriod: 1.0 },
+            }}
+        />
+        );
 
     },
-    Rain() {
+    Spark([...coordinates], duration, source, loopBool) {
 
-    }
+        let myParticle = '';
+        source === 'fxparttinyglowy.png' ?
+            myParticle = particle1
+            : myParticle = particle1;
+
+
+        return (
+        
+        <ViroParticleEmitter
+            position={coordinates}
+            duration={duration}
+            delay={1000}
+
+            run={true}
+            loop={loopBool}
+            fixedToEmitter={false}
+
+            image={{
+                source: myParticle,
+                height: 0.1,
+                width: 0.1,
+                bloomThreshold: 0.0
+            }}
+
+            spawnBehavior={{
+                particleLifetime: [duration / 2, duration / 2],
+                emissionRatePerSecond: [0, 0],
+                emissionBurst: [
+                    { time: 0, min: 300, max: 350, cycles: 1 }
+                ],
+                spawnVolume: { shape: "sphere", params: [0.15], spawnOnSurface: false },
+            }}
+
+            particleAppearance={{
+                opacity: {
+                    initialRange: [1.0, 1.0],
+                    factor: "Time",
+                    interpolation: [
+                        { endValue: 0.0, interval: [800, 1200] }
+                    ]
+                },
+
+                color: {
+                    initialRange: ["#0c0093", "#92008b"],
+                    factor: "Time",
+                    interpolation: [
+                        { endValue: "#00ff1d", interval: [300, 1200] }
+                    ]
+                }
+            }}
+
+            particlePhysics={{
+                explosiveImpulse: { impulse: 1, position: [0, 0,0], decelerationPeriod: 1.0 },
+            }}
+        />
+        );
+        }
 
 
 
