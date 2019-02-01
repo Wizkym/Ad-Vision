@@ -13,7 +13,7 @@ export default {
                     scaleX: 1.0, scaleY: 1.0, scaleZ: 1.0,
                     opacity: 1.0
                 },
-                
+                easing:"Linear", 
                 duration: 5000
             },
         });
