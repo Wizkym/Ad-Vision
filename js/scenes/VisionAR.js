@@ -4,8 +4,6 @@ import React, { Component } from 'react';
 
 import { Fountain } from '../helpers/particle';
 
-import {StyleSheet} from 'react-native';
-
 import {
     ViroARScene,
     ViroConstants,
@@ -97,7 +95,6 @@ class VisionAR extends Component {
             // Handle loss of tracking
         }
     }
-
 }
 
 module.exports = VisionAR;
