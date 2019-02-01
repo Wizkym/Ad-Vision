@@ -16,7 +16,8 @@ import {
     ViroARTrackingTargets,
     ViroMaterials,
     ViroVideo,
-    ViroParticleEmitter
+    ViroParticleEmitter,
+    ViroAnimations
 } from 'react-viro';
 
 class VisionAR extends Component {
@@ -28,13 +29,15 @@ class VisionAR extends Component {
         this.state = {
             text : "Initializing AR..."
         };
-        this.componentDidMount = this._componentDidMount.bind(this);
     
 
         // Bind 'this' to functions
         this._onInitialized = this._onInitialized.bind(this);
 
         this._onBufferStart = this._onBufferStart.bind(this);
+        this._onAnimationFinished = this._onAnimationFinished.bind(this);
+
+
        // Set media to display after image recognition
         ViroMaterials.createMaterials({
             apple: {
@@ -71,26 +74,18 @@ class VisionAR extends Component {
     render() {
         return (
             <ViroARScene onTrackingUpdated={this._onInitialized} >
+            {anims.registerAll()}
                 <ViroARImageMarker target={"apple"} ><ViroBox position={[0, .1, 0]} scale={[.1, .1, .1]} materials={["apple"]} />
                 </ViroARImageMarker>
                 <ViroARImageMarker target={"power"} ><ViroBox position={[0, .5, 0]} scale={[.2, .2, .2]} materials={["power"]} />
                 </ViroARImageMarker>
                 {/*<ViroARImageMarker target={"targetThree"} ><ViroBox position={[0, .5, 0]} scale={[.2, .2, .2]} materials={["shop"]} />*/}
                 <ViroARImageMarker target={"shop"} >
+            
+
+                    <ViroBox position={[0, 0, 0]} opacity={0.0} scale={[0.1, 0.1, 0.1]} materials={["apple"]}  animation={{name: 'plswrk', run: true, loop :true }} />
                     {particle.Firework([0,0,0], 4200, "fxparttinyglowy.png", true)}
-                    <ViroVideo
-                        source={require('../res/lights.mp4')}
-                        height={.2}
-                        width={.2}
-                        loop={true}
-                        position={[0,0,0]}
-                        materials={["shop"]}
-                        dragType={"FixedToWorld"}
-                        transformBehaviors={["billboardX"]}
-                        scale={[0, 0, 0]}
-                        animation={{name: 'GrowToScale', run:true}}
-                       
-                    />
+                   
                 </ViroARImageMarker>
             </ViroARScene>
         );
@@ -108,9 +103,10 @@ class VisionAR extends Component {
     _onBufferStart(func){
         func;
     }
-    _componentDidMount(){
-        anims.registerAll();
+    _onAnimationFinished(){
+        console.log('animation done');
     }
+  
 
 }
 
