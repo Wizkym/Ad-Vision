@@ -1,12 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-// Cloud Vision setup
-const vision = require('@google-cloud/vision');
-
-// Creates a client
-const client = new vision.ImageAnnotatorClient();
-
 router.get("/", (req, res) => {
     detectText()
         .then((data) => {
@@ -20,7 +14,7 @@ async function detectText() {
 
     // Creates a client
     const client = new vision.ImageAnnotatorClient();
-    const fileName = 'powerade.png';
+    const fileName = './src/js/res/powerade.png';
 
     // Performs text detection on the local file
     const [result] = await client.textDetection(fileName);
