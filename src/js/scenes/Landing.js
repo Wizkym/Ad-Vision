@@ -34,6 +34,7 @@ export default class Landing extends Component {
         this.state = {
             navigator : defaultNavigatorType,
             sharedProps : sharedProps,
+            hits: [],
             noneChecked: false,
             homeIsChecked: false,
             artIsChecked: false,
@@ -46,6 +47,7 @@ export default class Landing extends Component {
         this._getExperienceButtonOnPress = this._getExperienceButtonOnPress.bind(this);
         this._exitViro = this._exitViro.bind(this);
         this._checkBoxText =this._checkBoxText.bind(this);
+        this._handlePress = this._handlePress.bind(this);
     }
 
     // Conditional rendering
@@ -109,7 +111,9 @@ export default class Landing extends Component {
                 <ViroARSceneNavigator {...this.state.sharedProps}
                                       initialScene={{scene: ARScene}}/>
                 <View style={{position: 'absolute', backgroundColor:"#ffffff22", left: 30, right: 30, top: 30, alignItems: 'center'}}>
-                    <Text style={{fontSize:12, color:"#ffffff"}}>Tracking initialized.</Text>
+                    <TouchableHighlight onPress={this._handlePress}>
+                        <Text style={{fontSize:12, color:"#ffffff"}}>Tracking initialized.</Text>
+                    </TouchableHighlight>
                 </View>
                 <View style={{position: 'absolute',  left: 5, right: 0, bottom: 15}}>
                     <TouchableHighlight style={styles.back}
@@ -131,7 +135,6 @@ export default class Landing extends Component {
                    techIsChecked={this.state.techIsChecked}
                    educationIsChecked={this.state.educationIsChecked}
                    _exitViro={this._exitViro}
-                   detectText={this.detectText}
         />
     );
 
@@ -182,5 +185,12 @@ export default class Landing extends Component {
                             noneChecked:!this.state.noneChecked
                         });
     };
+
+    // Google Cloud Vision function
+    _handlePress = async () => {
+        fetch('https://localhost:3085/')
+            .then(response => response.json())
+            .then(data => this.setState({ hits: data }));
+    }
 
 }
