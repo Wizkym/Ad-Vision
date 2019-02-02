@@ -1,31 +1,32 @@
 {
-  "name": "AdVision",
-  "version": "0.0.1",
-  "private": true,
-  "rnpm": {
-    "assets": [
-      "./assets/fonts"
-    ]
-  },
+  "name": "advision",
+  "version": "1.0.0",
+  "description": "app backend",
+  "main": "server.js",
   "scripts": {
-    "prestart": "./node_modules/react-viro/bin/run_ngrok.sh",
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest --passWithNoTests"
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "start": "concurrently \"node server.js\" \"cd ./src\" \" npm start\"",
+    "install": "cd src && npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wizkym/Ad-Vision.git",
+    "build": "cd client && npm run build"
+  },
+  "author": "Kevin Jones",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Wizkym/Ad-Vision/issues"
+  },
+  "homepage": "https://github.com/Wizkym/Ad-Vision#readme",
+  "devDependencies": {
+    "nodemon": "^1.11.0",
+    "concurrently": "^3.5.0"
   },
   "dependencies": {
-    "react": "16.6.1",
-    "react-native": "0.57.7",
-    "react-native-animatable": "^1.3.1",
-    "react-native-check-box": "^2.1.7",
-    "react-viro": "2.13.0"
-  },
-  "devDependencies": {
-    "babel-jest": "23.6.0",
-    "jest": "23.6.0",
-    "metro-react-native-babel-preset": "0.51.1",
-    "react-test-renderer": "16.6.1"
-  },
-  "jest": {
-    "preset": "react-native"
+    "express": "^4.14.1",
+    "body-parser": "^1.17.2",
+    "morgan": "^1.7.0",
+    "if-env": "^1.0.4"
   }
 }
