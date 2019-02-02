@@ -11,7 +11,6 @@ import Customize from './Customize';
 import styles from '../../assets/styles/styles';
 import { ViroARSceneNavigator } from 'react-viro';
 import * as Animatable from 'react-native-animatable';
-
 /*
  TODO: Insert your API key below
  */
