@@ -5,7 +5,8 @@ router.get("/", (req, res) => {
     detectText()
         .then((data) => {
             res.send(data);
-        });
+        })
+        .catch(err => console.log(err));
 });
 
 async function detectText() {

@@ -1,10 +1,6 @@
 platform :ios, '9.3'
 target 'AdVision' do
   use_frameworks!
-  pod 'Firebase/MLVision'
-  pod 'Firebase/Core'
-  pod 'Firebase/MLVisionTextModel'
   pod 'ViroReact', :path => '../node_modules/react-viro/ios/'
   pod 'ViroKit', :path => '../node_modules/react-viro/ios/dist/ViroRenderer/'
-
 end

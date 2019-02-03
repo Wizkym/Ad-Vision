@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -39,13 +40,9 @@
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		4046FEB495834AD88C7334F4 /* Orbitron-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E39679E02E304BE1BBD9BE35 /* Orbitron-Black.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		99E762F497B381D7F214004C /* Pods_AdVision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9B34E90DEFA400BD0036A3 /* Pods_AdVision.framework */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
-		B5F2B622220167C5009BB332 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5F2B5FC220167C5009BB332 /* GoogleService-Info.plist */; };
 		D7CF3F604E524CD3A5E022F8 /* Orbitron-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EB993B70F4048AD8AE9D2BC /* Orbitron-Medium.ttf */; };
-		57694443EF244BFDBB414240 /* NodeMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EEEC9925458463FAD5BAC14 /* NodeMobile.framework */; };
-		1A62058C400A41FFB43C9449 /* NodeMobile.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9EEEC9925458463FAD5BAC14 /* NodeMobile.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FF5261CED3D5478F9E652BC0 /* nodejs-project in Resources */ = {isa = PBXBuildFile; fileRef = A694911FC1B24163AB35CF98 /* nodejs-project */; };
-		371FB076AE5F4B30AC6ABA07 /* builtin_modules in Resources */ = {isa = PBXBuildFile; fileRef = CA3A9D453BD546BC96FA6318 /* builtin_modules */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -348,17 +345,16 @@
 		2D02E4901E0B4A5D006451C7 /* AdVision-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AdVision-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		46167F00328E4B4E802F1832 /* Orbitron-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Orbitron-Bold.ttf"; path = "../assets/fonts/Orbitron-Bold.ttf"; sourceTree = "<group>"; };
+		4DDF50AFB81C7962D7B80584 /* Pods-AdVision.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdVision.debug.xcconfig"; path = "Target Support Files/Pods-AdVision/Pods-AdVision.debug.xcconfig"; sourceTree = "<group>"; };
 		4EB993B70F4048AD8AE9D2BC /* Orbitron-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Orbitron-Medium.ttf"; path = "../assets/fonts/Orbitron-Medium.ttf"; sourceTree = "<group>"; };
+		5C9B34E90DEFA400BD0036A3 /* Pods_AdVision.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdVision.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		864D1DE54BBAA2B728D66C16 /* Pods-AdVision.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdVision.release.xcconfig"; path = "Target Support Files/Pods-AdVision/Pods-AdVision.release.xcconfig"; sourceTree = "<group>"; };
 		A62F75880AC14763925BE77D /* Orbitron-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Orbitron-Regular.ttf"; path = "../assets/fonts/Orbitron-Regular.ttf"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
-		B5F2B5FC220167C5009BB332 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E39679E02E304BE1BBD9BE35 /* Orbitron-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Orbitron-Black.ttf"; path = "../assets/fonts/Orbitron-Black.ttf"; sourceTree = "<group>"; };
-		9EEEC9925458463FAD5BAC14 /* NodeMobile.framework */ = {isa = PBXFileReference; name = "NodeMobile.framework"; path = "../node_modules/nodejs-mobile-react-native/ios/NodeMobile.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
-		A694911FC1B24163AB35CF98 /* nodejs-project */ = {isa = PBXFileReference; name = "nodejs-project"; path = "../nodejs-assets/nodejs-project"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		CA3A9D453BD546BC96FA6318 /* builtin_modules */ = {isa = PBXFileReference; name = "builtin_modules"; path = "../node_modules/nodejs-mobile-react-native/install/resources/nodejs-modules/builtin_modules"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -386,7 +382,7 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
-				57694443EF244BFDBB414240 /* NodeMobile.framework in Frameworks */,
+				99E762F497B381D7F214004C /* Pods_AdVision.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,7 +494,6 @@
 		13B07FAE1A68108700A75B9A /* AdVision */ = {
 			isa = PBXGroup;
 			children = (
-				B5F2B5FC220167C5009BB332 /* GoogleService-Info.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -537,9 +532,18 @@
 			isa = PBXGroup;
 			children = (
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
-				9EEEC9925458463FAD5BAC14 /* NodeMobile.framework */,
+				5C9B34E90DEFA400BD0036A3 /* Pods_AdVision.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3FFD85B2EE3E11873E74C1D5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4DDF50AFB81C7962D7B80584 /* Pods-AdVision.debug.xcconfig */,
+				864D1DE54BBAA2B728D66C16 /* Pods-AdVision.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		5E91572E1DD0AC6500FF2AA8 /* Products */ = {
@@ -597,8 +601,8 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				B464C88B9A474EB9BE34F91D /* Resources */,
-				A694911FC1B24163AB35CF98 /* nodejs-project */,
-				CA3A9D453BD546BC96FA6318 /* builtin_modules */,
+				3FFD85B2EE3E11873E74C1D5 /* Pods */,
+				B545351422067CFD00A38B30 /* Recovered References */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -636,6 +640,13 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		B545351422067CFD00A38B30 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -661,18 +672,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "AdVision" */;
 			buildPhases = (
+				6FF4DB8A6D7DF8E175814B02 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				EE9E22CDD86864B0F60F366E /* Execute Ngrok */,
-				73757B273602572FC360C41B /* Copy ngrok endpoint */,
-				9B93BA70FD6742D6FD9D6B8C /* Execute Ngrok */,
-				B88D6482CA5F995C6096056B /* Copy ngrok endpoint */,
-				4D7814A305094F218120E756 /* Embed Frameworks */,
-				36F6C971BAEB40609C951A41 /* Build NodeJS Mobile Native Modules */,
-				55D468930E404696990A82CE /* Sign NodeJS Mobile Native Modules */,
-				4209BD909C744DCD8D5C1DE8 /* Remove NodeJS Mobile Framework Simulator Strips */,
+				86D3EE738B31CC9DF8F3F5B4 /* Copy ngrok endpoint */,
+				466E77311A76FBB6241A7BC5 /* [CP] Embed Pods Frameworks */,
+				1156F546840C174C40670546 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1099,9 +1107,6 @@
 				20D388854680438B8D7C207D /* Orbitron-Bold.ttf in Resources */,
 				D7CF3F604E524CD3A5E022F8 /* Orbitron-Medium.ttf in Resources */,
 				1C0B706DC9174427BB7F7079 /* Orbitron-Regular.ttf in Resources */,
-				B5F2B622220167C5009BB332 /* GoogleService-Info.plist in Resources */,
-				FF5261CED3D5478F9E652BC0 /* nodejs-project in Resources */,
-				371FB076AE5F4B30AC6ABA07 /* builtin_modules in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1137,6 +1142,36 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
+		1156F546840C174C40670546 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AdVision/Pods-AdVision-resources.sh",
+				"${PODS_ROOT}/GVRSDK/Resources/CardboardSDK.bundle",
+				"${PODS_ROOT}/GVRSDK/Resources/GoogleKitCore.bundle",
+				"${PODS_ROOT}/GVRSDK/Resources/GoogleKitDialogs.bundle",
+				"${PODS_ROOT}/GVRSDK/Resources/GoogleKitHUD.bundle",
+				"${PODS_ROOT}/GVRSDK/Resources/MaterialRobotoFontLoader.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CardboardSDK.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleKitCore.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleKitDialogs.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleKitHUD.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialRobotoFontLoader.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AdVision/Pods-AdVision-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1151,7 +1186,7 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		73757B273602572FC360C41B /* Copy ngrok endpoint */ = {
+		466E77311A76FBB6241A7BC5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1159,17 +1194,29 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AdVision/Pods-AdVision-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSDynamoDB/AWSDynamoDB.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${PODS_ROOT}/../../node_modules/react-viro/ios/dist/ViroRenderer/ViroKit.framework",
 			);
-			name = "Copy ngrok endpoint";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSDynamoDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ViroKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "DEST=$CONFIGURATION_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH\nendpointfile=\"ngrokendpoint.txt\"\nif [[ -e \"$SRCROOT/$endpointfile\" ]]; then\necho \"Ngrok endpoint file found, copying over...\"\ncp \"$SRCROOT/$endpointfile\" \"$DEST/$endpointfile\"\nbreak;\nfi";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AdVision/Pods-AdVision-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
-		9B93BA70FD6742D6FD9D6B8C /* Execute Ngrok */ = {
+		6FF4DB8A6D7DF8E175814B02 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1177,17 +1224,21 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "Execute Ngrok";
+			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AdVision-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "$SRCROOT/ngrok_launch.sh";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
-		B88D6482CA5F995C6096056B /* Copy ngrok endpoint */ = {
+		86D3EE738B31CC9DF8F3F5B4 /* Copy ngrok endpoint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1221,161 +1272,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "$SRCROOT/ngrok_launch.sh";
-		};
-		36F6C971BAEB40609C951A41 /* Build NodeJS Mobile Native Modules */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			name = "Build NodeJS Mobile Native Modules";
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			shellPath = /bin/sh;
-			shellScript = "
-set -e
-if [ -z \"$NODEJS_MOBILE_BUILD_NATIVE_MODULES\" ]; then
-# If build native modules preference is not set, look for it in the project's
-#nodejs-assets/BUILD_NATIVE_MODULES.txt file.
-NODEJS_ASSETS_DIR=\"$( cd \"$PROJECT_DIR\" && cd ../nodejs-assets/ && pwd )\"
-PREFERENCE_FILE_PATH=\"$NODEJS_ASSETS_DIR/BUILD_NATIVE_MODULES.txt\"
-  if [ -f \"$PREFERENCE_FILE_PATH\" ]; then
-    NODEJS_MOBILE_BUILD_NATIVE_MODULES=\"$(cat $PREFERENCE_FILE_PATH | xargs)\"
-  fi
-fi
-if [ -z \"$NODEJS_MOBILE_BUILD_NATIVE_MODULES\" ]; then
-# If build native modules preference is not set, try to find .gyp files
-#to turn it on.
-  gypfiles=($(find \"$CODESIGNING_FOLDER_PATH/nodejs-project/\" -type f -name \"*.gyp\"))
-  if [ ${#gypfiles[@]} -gt 0 ]; then
-    NODEJS_MOBILE_BUILD_NATIVE_MODULES=1
-  else
-    NODEJS_MOBILE_BUILD_NATIVE_MODULES=0
-  fi
-fi
-if [ \"1\" != \"$NODEJS_MOBILE_BUILD_NATIVE_MODULES\" ]; then exit 0; fi
-# Delete object files that may already come from within the npm package.
-find \"$CODESIGNING_FOLDER_PATH/nodejs-project/\" -name \"*.o\" -type f -delete
-find \"$CODESIGNING_FOLDER_PATH/nodejs-project/\" -name \"*.a\" -type f -delete
-find \"$CODESIGNING_FOLDER_PATH/nodejs-project/\" -name \"*.node\" -type f -delete
-# Delete bundle contents that may be there from previous builds.
-find \"$CODESIGNING_FOLDER_PATH/nodejs-project/\" -path \"*/*.node/*\" -delete
-find \"$CODESIGNING_FOLDER_PATH/nodejs-project/\" -name \"*.node\" -type d -delete
-find \"$CODESIGNING_FOLDER_PATH/nodejs-project/\" -path \"*/*.framework/*\" -delete
-find \"$CODESIGNING_FOLDER_PATH/nodejs-project/\" -name \"*.framework\" -type d -delete
-# Apply patches to the modules package.json
-if [ -d \"$CODESIGNING_FOLDER_PATH\"/nodejs-project/node_modules/ ]; then
-  PATCH_SCRIPT_DIR=\"$( cd \"$PROJECT_DIR\" && cd ../node_modules/nodejs-mobile-react-native/scripts/ && pwd )\"
-  NODEJS_PROJECT_MODULES_DIR=\"$( cd \"$CODESIGNING_FOLDER_PATH\" && cd nodejs-project/node_modules/ && pwd )\"
-  node \"$PATCH_SCRIPT_DIR\"/patch-package.js $NODEJS_PROJECT_MODULES_DIR
-fi
-# Get the nodejs-mobile-gyp location
-if [ -d \"$PROJECT_DIR/../node_modules/nodejs-mobile-gyp/\" ]; then
-  NODEJS_MOBILE_GYP_DIR=\"$( cd \"$PROJECT_DIR\" && cd ../node_modules/nodejs-mobile-gyp/ && pwd )\"
-else
-  NODEJS_MOBILE_GYP_DIR=\"$( cd \"$PROJECT_DIR\" && cd ../node_modules/nodejs-mobile-react-native/node_modules/nodejs-mobile-gyp/ && pwd )\"
-fi
-NODEJS_MOBILE_GYP_BIN_FILE=\"$NODEJS_MOBILE_GYP_DIR\"/bin/node-gyp.js
-# Rebuild modules with right environment
-NODEJS_HEADERS_DIR=\"$( cd \"$PROJECT_DIR\" && cd ../node_modules/nodejs-mobile-react-native/ios/libnode/ && pwd )\"
-pushd $CODESIGNING_FOLDER_PATH/nodejs-project/
-if [ \"$PLATFORM_NAME\" == \"iphoneos\" ]
-then
-  GYP_DEFINES=\"OS=ios\" npm_config_nodedir=\"$NODEJS_HEADERS_DIR\" npm_config_node_gyp=\"$NODEJS_MOBILE_GYP_BIN_FILE\" npm_config_platform=\"ios\" npm_config_format=\"make-ios\" npm_config_node_engine=\"chakracore\" npm_config_arch=\"arm64\" npm --verbose rebuild --build-from-source
-else
-  GYP_DEFINES=\"OS=ios\" npm_config_nodedir=\"$NODEJS_HEADERS_DIR\" npm_config_node_gyp=\"$NODEJS_MOBILE_GYP_BIN_FILE\" npm_config_platform=\"ios\" npm_config_format=\"make-ios\" npm_config_node_engine=\"chakracore\" npm_config_arch=\"x64\" npm --verbose rebuild --build-from-source
-fi
-popd
-";
-		};
-		55D468930E404696990A82CE /* Sign NodeJS Mobile Native Modules */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			name = "Sign NodeJS Mobile Native Modules";
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			shellPath = /bin/sh;
-			shellScript = "
-set -e
-if [ -z \"$NODEJS_MOBILE_BUILD_NATIVE_MODULES\" ]; then
-# If build native modules preference is not set, look for it in the project's
-#nodejs-assets/BUILD_NATIVE_MODULES.txt file.
-NODEJS_ASSETS_DIR=\"$( cd \"$PROJECT_DIR\" && cd ../nodejs-assets/ && pwd )\"
-PREFERENCE_FILE_PATH=\"$NODEJS_ASSETS_DIR/BUILD_NATIVE_MODULES.txt\"
-  if [ -f \"$PREFERENCE_FILE_PATH\" ]; then
-    NODEJS_MOBILE_BUILD_NATIVE_MODULES=\"$(cat $PREFERENCE_FILE_PATH | xargs)\"
-  fi
-fi
-if [ -z \"$NODEJS_MOBILE_BUILD_NATIVE_MODULES\" ]; then
-# If build native modules preference is not set, try to find .gyp files
-#to turn it on.
-  gypfiles=($(find \"$CODESIGNING_FOLDER_PATH/nodejs-project/\" -type f -name \"*.gyp\"))
-  if [ ${#gypfiles[@]} -gt 0 ]; then
-    NODEJS_MOBILE_BUILD_NATIVE_MODULES=1
-  else
-    NODEJS_MOBILE_BUILD_NATIVE_MODULES=0
-  fi
-fi
-if [ \"1\" != \"$NODEJS_MOBILE_BUILD_NATIVE_MODULES\" ]; then exit 0; fi
-# Delete object files
-find \"$CODESIGNING_FOLDER_PATH/nodejs-project/\" -name \"*.o\" -type f -delete
-find \"$CODESIGNING_FOLDER_PATH/nodejs-project/\" -name \"*.a\" -type f -delete
-# Create Info.plist for each framework built and loader override.
-PATCH_SCRIPT_DIR=\"$( cd \"$PROJECT_DIR\" && cd ../node_modules/nodejs-mobile-react-native/scripts/ && pwd )\"
-NODEJS_PROJECT_DIR=\"$( cd \"$CODESIGNING_FOLDER_PATH\" && cd nodejs-project/ && pwd )\"
-node \"$PATCH_SCRIPT_DIR\"/ios-create-plists-and-dlopen-override.js $NODEJS_PROJECT_DIR
-# Embed every resulting .framework in the application and delete them afterwards.
-embed_framework()
-{
-    FRAMEWORK_NAME=\"$(basename \"$1\")\"
-    cp -r \"$1\" \"$TARGET_BUILD_DIR/$FRAMEWORKS_FOLDER_PATH/\"
-    
-    /usr/bin/codesign --force --sign $EXPANDED_CODE_SIGN_IDENTITY --preserve-metadata=identifier,entitlements,flags --timestamp=none \"$TARGET_BUILD_DIR/$FRAMEWORKS_FOLDER_PATH/$FRAMEWORK_NAME\"
-}
-find \"$CODESIGNING_FOLDER_PATH/nodejs-project/\" -name \"*.framework\" -type d | while read frmwrk_path; do embed_framework \"$frmwrk_path\"; done
-
-#Delete gyp temporary .deps dependency folders from the project structure.
-find \"$CODESIGNING_FOLDER_PATH/nodejs-project/\" -path \"*/.deps/*\" -delete
-find \"$CODESIGNING_FOLDER_PATH/nodejs-project/\" -name \".deps\" -type d -delete
-
-#Delete frameworks from their build paths
-find \"$CODESIGNING_FOLDER_PATH/nodejs-project/\" -path \"*/*.framework/*\" -delete
-find \"$CODESIGNING_FOLDER_PATH/nodejs-project/\" -name \"*.framework\" -type d -delete
-";
-		};
-		4209BD909C744DCD8D5C1DE8 /* Remove NodeJS Mobile Framework Simulator Strips */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			name = "Remove NodeJS Mobile Framework Simulator Strips";
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			shellPath = /bin/sh;
-			shellScript = "
-set -e
-FRAMEWORK_BINARY_PATH=\"$TARGET_BUILD_DIR/$FRAMEWORKS_FOLDER_PATH/NodeMobile.framework/NodeMobile\"
-FRAMEWORK_STRIPPED_PATH=\"$FRAMEWORK_BINARY_PATH-strip\"
-if [ \"$PLATFORM_NAME\" != \"iphonesimulator\" ]; then
-  if $(lipo \"$FRAMEWORK_BINARY_PATH\" -verify_arch \"x86_64\") ; then
-    lipo -output \"$FRAMEWORK_STRIPPED_PATH\" -remove \"x86_64\" \"$FRAMEWORK_BINARY_PATH\"
-    rm \"$FRAMEWORK_BINARY_PATH\"
-    mv \"$FRAMEWORK_STRIPPED_PATH\" \"$FRAMEWORK_BINARY_PATH\"
-    echo \"Removed simulator strip from NodeMobile.framework\"
-  fi
-fi
-";
+			shellScript = "$SRCROOT/ngrok_launch.sh\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1449,13 +1346,22 @@ fi
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = P59L629TK3;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"../node_modules/nodejs-mobile-react-native/ios\"",
+					"\"../node_modules/nodejs-mobile-react-native/ios\"",
+					"\"../node_modules/nodejs-mobile-react-native/ios\"",
+					"\"../node_modules/nodejs-mobile-react-native/ios\"",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = AdVisionTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1463,17 +1369,6 @@ fi
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AdVision.app/AdVision";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-				);
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"../node_modules/nodejs-mobile-react-native/ios\"",
-					"\"../node_modules/nodejs-mobile-react-native/ios\"",
-				);
 			};
 			name = Debug;
 		};
@@ -1485,9 +1380,18 @@ fi
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = P59L629TK3;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"../node_modules/nodejs-mobile-react-native/ios\"",
+					"\"../node_modules/nodejs-mobile-react-native/ios\"",
+					"\"../node_modules/nodejs-mobile-react-native/ios\"",
+					"\"../node_modules/nodejs-mobile-react-native/ios\"",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = AdVisionTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1495,22 +1399,12 @@ fi
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AdVision.app/AdVision";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-				);
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"../node_modules/nodejs-mobile-react-native/ios\"",
-					"\"../node_modules/nodejs-mobile-react-native/ios\"",
-				);
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4DDF50AFB81C7962D7B80584 /* Pods-AdVision.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1519,6 +1413,12 @@ fi
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = P59L629TK3;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"../node_modules/nodejs-mobile-react-native/ios\"",
+					"\"../node_modules/nodejs-mobile-react-native/ios\"",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = AdVision/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1532,18 +1432,12 @@ fi
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-				);
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"../node_modules/nodejs-mobile-react-native/ios\"",
-				);
 			};
 			name = Debug;
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 864D1DE54BBAA2B728D66C16 /* Pods-AdVision.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1552,6 +1446,12 @@ fi
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = P59L629TK3;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"../node_modules/nodejs-mobile-react-native/ios\"",
+					"\"../node_modules/nodejs-mobile-react-native/ios\"",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = AdVision/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1565,13 +1465,6 @@ fi
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-				);
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"../node_modules/nodejs-mobile-react-native/ios\"",
-				);
 			};
 			name = Release;
 		};
@@ -1588,9 +1481,18 @@ fi
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_BITCODE = NO;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"../node_modules/nodejs-mobile-react-native/ios\"",
+					"\"../node_modules/nodejs-mobile-react-native/ios\"",
+					"\"../node_modules/nodejs-mobile-react-native/ios\"",
+					"\"../node_modules/nodejs-mobile-react-native/ios\"",
+				);
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "AdVision-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1600,17 +1502,6 @@ fi
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-				);
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"../node_modules/nodejs-mobile-react-native/ios\"",
-					"\"../node_modules/nodejs-mobile-react-native/ios\"",
-				);
 			};
 			name = Debug;
 		};
@@ -1627,9 +1518,18 @@ fi
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"../node_modules/nodejs-mobile-react-native/ios\"",
+					"\"../node_modules/nodejs-mobile-react-native/ios\"",
+					"\"../node_modules/nodejs-mobile-react-native/ios\"",
+					"\"../node_modules/nodejs-mobile-react-native/ios\"",
+				);
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "AdVision-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1639,17 +1539,6 @@ fi
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-				);
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"../node_modules/nodejs-mobile-react-native/ios\"",
-					"\"../node_modules/nodejs-mobile-react-native/ios\"",
-				);
 			};
 			name = Release;
 		};
@@ -1665,9 +1554,18 @@ fi
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_BITCODE = NO;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"../node_modules/nodejs-mobile-react-native/ios\"",
+					"\"../node_modules/nodejs-mobile-react-native/ios\"",
+					"\"../node_modules/nodejs-mobile-react-native/ios\"",
+					"\"../node_modules/nodejs-mobile-react-native/ios\"",
+				);
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "AdVision-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1677,17 +1575,6 @@ fi
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AdVision-tvOS.app/AdVision-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-				);
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"../node_modules/nodejs-mobile-react-native/ios\"",
-					"\"../node_modules/nodejs-mobile-react-native/ios\"",
-				);
 			};
 			name = Debug;
 		};
@@ -1703,9 +1590,18 @@ fi
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"../node_modules/nodejs-mobile-react-native/ios\"",
+					"\"../node_modules/nodejs-mobile-react-native/ios\"",
+					"\"../node_modules/nodejs-mobile-react-native/ios\"",
+					"\"../node_modules/nodejs-mobile-react-native/ios\"",
+				);
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "AdVision-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1715,17 +1611,6 @@ fi
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AdVision-tvOS.app/AdVision-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-				);
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"../node_modules/nodejs-mobile-react-native/ios\"",
-					"\"../node_modules/nodejs-mobile-react-native/ios\"",
-				);
 			};
 			name = Release;
 		};
@@ -1758,6 +1643,7 @@ fi
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1779,7 +1665,6 @@ fi
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				ENABLE_BITCODE = NO;
 			};
 			name = Debug;
 		};
@@ -1812,6 +1697,7 @@ fi
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1826,7 +1712,6 @@ fi
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
-				ENABLE_BITCODE = NO;
 			};
 			name = Release;
 		};
@@ -1879,20 +1764,6 @@ fi
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		4D7814A305094F218120E756 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1A62058C400A41FFB43C9449 /* NodeMobile.framework in Embed Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			name = "Embed Frameworks";
-			dstPath = "";
-			dstSubfolderSpec = 10;
-		};
-/* End PBXCopyFilesBuildPhase section */
 	};
 	rootObject = 83CBB9F71A601CBA00E9B192 /* Project object */;
 }
