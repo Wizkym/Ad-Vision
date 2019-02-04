@@ -33,6 +33,8 @@ export function fillAndRender(){
     fillTracker.then(() => renderTrackers())
 }
 
+
+
 const fillTracker = new Promise(function(resolve, reject) {
     resolve(ViroARTrackingTargets.createTargets(targets));
 

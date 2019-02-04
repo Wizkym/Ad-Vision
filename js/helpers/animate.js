@@ -19,7 +19,7 @@ export default {
                 },
 
                 easing:"Linear", 
-                duration:2000
+                duration:1000
             },
             animateOpacity2: {
                 properties: {
@@ -30,7 +30,7 @@ export default {
                 },
 
                 easing:"Linear", 
-                duration:100
+                duration:70
             },
             animateOpacity3: {
                 properties: {
@@ -41,7 +41,7 @@ export default {
                 },
 
                 easing:"Linear", 
-                duration:100
+                duration:70
             },
             animateOpacity4: {
                 properties: {
@@ -52,7 +52,7 @@ export default {
                 },
 
                 easing:"Linear", 
-                duration:100
+                duration:70
             },
             animateOpacity5: {
                 properties: {
@@ -63,7 +63,7 @@ export default {
                 },
 
                 easing:"Linear", 
-                duration:100
+                duration:70
             },
             animateOpacity6: {
                 properties: {
@@ -74,7 +74,7 @@ export default {
                 },
 
                 easing:"Linear", 
-                duration:100
+                duration:70
             },
             animateOpacity7: {
                 properties: {
@@ -85,7 +85,7 @@ export default {
                 },
 
                 easing:"Linear", 
-                duration:100
+                duration:70
             },
             animateOpacity8: {
                 properties: {
@@ -96,7 +96,7 @@ export default {
                 },
 
                 easing:"Linear", 
-                duration:100
+                duration:70
             },
             animateOpacity9: {
                 properties: {
@@ -107,7 +107,7 @@ export default {
                 },
 
                 easing:"Linear", 
-                duration:100
+                duration:70
             },
             animateOpacity10: {
                 properties: {
@@ -117,8 +117,8 @@ export default {
                     opacity: 1.0
                 },
 
-                easing:"Linear", 
-                duration:100
+                easing:"Bounce", 
+                duration:80
             },
             
             rotate:{properties:{rotateZ:"+=360"}, duration:5000},
