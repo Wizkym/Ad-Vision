@@ -5,8 +5,17 @@ import React, { Component } from 'react';
 import particle from '../helpers/particle';
 
 import anims from '../helpers/animate';
+import Tester from '../helpers/tester';
+import TextTester from '../tester/TextTester';
 
-import { StyleSheet } from 'react-native';
+
+import {
+    Image,
+    ScrollView,
+    Text,
+    TouchableHighlight,
+    StyleSheet
+} from 'react-native';
 
 import {
     ViroARScene,
@@ -17,17 +26,26 @@ import {
     ViroMaterials,
     ViroVideo,
     ViroParticleEmitter,
-    ViroAnimations
+    ViroAnimations,
+    ViroImage,
+    ViroQuad,
+    ViroText,
+    ViroButton,
+    ViroFlexView
 } from 'react-viro';
+import { View } from 'react-native-animatable';
+import { renderables } from '../helpers/tester';
 
 class VisionAR extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         // Set initial state here
         this.state = {
-            text: "Initializing AR..."
+            text: "Initializing AR...",
+            testText: "THeyyyyyyyyyy",
+            targets: []
         };
 
 
@@ -36,6 +54,10 @@ class VisionAR extends Component {
 
         this._onBufferStart = this._onBufferStart.bind(this);
         this._onStart = this._onStart.bind(this);
+        this.changeTitle = this.changeTitle.bind(this);
+
+
+
 
 
 
@@ -53,26 +75,9 @@ class VisionAR extends Component {
         });
 
         // Set materials for image tracking
-        ViroARTrackingTargets.createTargets({
-            "apple": {
-                source: require('../res/apple.jpg'),
-                orientation: "Up",
-                physicalWidth: 0.1 // real world width in meters
-            },
-            "power": {
-                source: require('../res/powerade.png'),
-                orientation: "Up",
-                physicalWidth: .05 // real world width in meters
-            },
-            "shop": {
-                source: require('../res/kohls.jpg'),
-                orientation: "Up",
-                physicalWidth: .2 // real world width in meters
-            }
-        });
+        //needs to be remove, see Landing.js
+
     }
-
-
 
     _onInitialized(state, reason) {
         if (state === ViroConstants.TRACKING_NORMAL) {
@@ -87,38 +92,38 @@ class VisionAR extends Component {
         func;
     }
     _onStart() {
-        particle.Firework([0, 0, 0], 4200, "fxparttinyglowy.png", true);
+        particle.Firework([0, 0, 0], 4200, "fxparttinyglowy.png", false, 1800)
+    }
+    changeTitle = () => {
+        let newState = {...this.state};
+        newState.testText = "Yare Yare Daze";
+        this.setState(newState);
+    }
+    bake = () => {
+        let newState = {...this.state};
+        
+        if(renderables.hasBeenFilled){
+            for(let i = 0; i < renderables.data.length; i++){
+                newState.targets.push(renderables.data[i]);
+            }
+        }
+        this.setState(newState);
     }
 
     render() {
+    let ARtargets = this.state.targets.map( target => target );
+          
+        
         return (
             <ViroARScene onTrackingUpdated={this._onInitialized} >
                 {anims.registerAll()}
+                <TextTester 
+                thing={this.state.testText}
+                onClick={this.bake}
+                />
 
-
-                <ViroARImageMarker target={"apple"} ><ViroBox position={[0, .1, 0]} scale={[.1, .1, .1]} materials={["apple"]} />
-                </ViroARImageMarker>
-                <ViroARImageMarker target={"power"} ><ViroBox position={[0, .5, 0]} scale={[.2, .2, .2]} materials={["power"]} />
-                </ViroARImageMarker>
-                {/*<ViroARImageMarker target={"targetThree"} ><ViroBox position={[0, .5, 0]} scale={[.2, .2, .2]} materials={["shop"]} />*/}
-                <ViroARImageMarker target={"shop"}  >
-
-
-                    <ViroBox position={[0, 0, 0]}
-                        opacity={0.0}
-                        scale={[0.0, 0.0, 0.0]}
-                        materials={["apple"]}
-                        animation={{
-                            name: 'plswrk', delay: 1300, run: true
-                        }} />
-                    {particle.Firework([0, 0, 0], 4200, "fxparttinyglowy.png", false, 1000)}
-
-
-
-
-                </ViroARImageMarker>
-
-
+                {ARtargets}
+            
             </ViroARScene>
         );
     }
