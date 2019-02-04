@@ -117,7 +117,9 @@ export default class Landing extends Component {
                 <ViroARSceneNavigator {...this.state.sharedProps}
                     initialScene={{ scene: ARScene }} />
 
-                <Status onPress={this._toggleTargeting}/>
+                <Status 
+                tracking={this.state.trackingActive}
+                onPress={this._toggleTargeting}/>
 
 
                 <View style={{ position: 'absolute', left: 5, right: 0, bottom: 15 }}>
@@ -184,11 +186,15 @@ export default class Landing extends Component {
     _toggleTargeting() {
         if (!this.state.trackingActive) {
             fillAndRender();
-            this.state.trackingActive = true;
+            let newState = {...this.state};
+            newState.trackingActive = true;
+            this.setState(newState);
         }
         else {
             emptyTracker();
-            this.state.trackingActive = false;
+            let newState = {...this.state};
+            newState.trackingActive = false;
+            this.setState(newState);
         }
 
     }
