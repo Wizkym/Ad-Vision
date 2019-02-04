@@ -40,7 +40,7 @@ class Status extends Component {
     render() {
         return (
             <View style={{ position: 'absolute', backgroundColor: "#ffffff22", left: 30, right: 30, top: 30, alignItems: 'center' }}>
-                <Text style={{ fontSize: 12, color: "#ffffff" }} >{this.state.tracking ? "Tracking Activated" : "Tracking Disabled"}</Text>
+                <Text style={{ fontSize: 12, color: "#ffffff" }} >{this.props.tracking ? "Tracking Activated" : "Tracking Disabled"}</Text>
                
                     <TouchableHighlight onPress={this.props.onPress}  style={styles.back}>
                         <Image  source={require('../res/btn_feature_color_white.png')} style={{ height: 80, width: 80 }} />
