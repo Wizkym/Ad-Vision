@@ -2,6 +2,8 @@
 
 import React from "react";
 
+import particle from '../helpers/particle'; 
+
 import {
     ViroARImageMarker,
     ViroBox,
@@ -11,10 +13,14 @@ import {
 
 
 
+export const runTestEmitter = () =>{
+    particle.Firework([0, 0, 0], 4200, "fxparttinyglowy.png", false, 1800)
+
+}
 export function Target(type, name) {
 
     let dummyKey = dummyKeyGen();
-    alert(dummyKey);
+    //alert(dummyKey);
 
     if (type === "box") {
 

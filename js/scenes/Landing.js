@@ -195,6 +195,9 @@ export default class Landing extends Component {
             let newState = {...this.state};
             newState.trackingActive = false;
             this.setState(newState);
+            setTimeout(()=> {
+                alert("Tracker has been emptied");
+            },1500)
         }
 
     }

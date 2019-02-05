@@ -34,7 +34,7 @@ import {
     ViroFlexView
 } from 'react-viro';
 import { View } from 'react-native-animatable';
-import { renderables } from '../helpers/tester';
+import { runTestEmitter, renderables } from '../helpers/tester';
 
 class VisionAR extends Component {
 
@@ -45,6 +45,8 @@ class VisionAR extends Component {
         this.state = {
             text: "Initializing AR...",
             testText: "THeyyyyyyyyyy",
+            playAnim: false,
+            trackerEmpty: true,
             targets: []
         };
 
@@ -92,7 +94,7 @@ class VisionAR extends Component {
         func;
     }
     _onStart() {
-        particle.Firework([0, 0, 0], 4200, "fxparttinyglowy.png", false, 1800)
+        particle.Firework([0, 0, 0], 4200, "fxparttinyglowy.png", false, 1800);
     }
     changeTitle = () => {
         let newState = {...this.state};
@@ -109,6 +111,19 @@ class VisionAR extends Component {
         }
         this.setState(newState);
     }
+    checkIfRenderablesEmpty = () => {
+        setInterval(() => {
+            if(!renderables.hasBeenFilled && this.state.targets.length > 1){
+                alert('Scene will now refresh')
+                let newState = {...this.state};
+                newState.trackerEmpty = true;
+                newState.targets = [];
+                this.setState(newState);
+            }else{
+                return;
+            }
+        }, 1000);
+    }
 
     render() {
     let ARtargets = this.state.targets.map( target => target );
@@ -116,6 +131,7 @@ class VisionAR extends Component {
         
         return (
             <ViroARScene onTrackingUpdated={this._onInitialized} >
+                {this.checkIfRenderablesEmpty()}
                 {anims.registerAll()}
                 <TextTester 
                 thing={this.state.testText}
