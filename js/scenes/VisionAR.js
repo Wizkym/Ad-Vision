@@ -44,9 +44,9 @@ class VisionAR extends Component {
         // Set initial state here
         this.state = {
             text: "Initializing AR...",
-            testText: "THeyyyyyyyyyy",
+            testText: "Click the pink circle after initializing tracking",
             playAnim: false,
-            trackerEmpty: true,
+            canRenderARComponents : false,
             targets: []
         };
 
@@ -109,14 +109,14 @@ class VisionAR extends Component {
                 newState.targets.push(renderables.data[i]);
             }
         }
+        
         this.setState(newState);
     }
     checkIfRenderablesEmpty = () => {
         setInterval(() => {
             if(!renderables.hasBeenFilled && this.state.targets.length > 1){
-                alert('Scene will now refresh')
+                //alert('Scene will now refresh')
                 let newState = {...this.state};
-                newState.trackerEmpty = true;
                 newState.targets = [];
                 this.setState(newState);
             }else{
@@ -124,9 +124,16 @@ class VisionAR extends Component {
             }
         }, 1000);
     }
+    grabRenderables = () => {
 
+        if(this.state.targets.length > 1){
+            let ARtargets = this.state.targets.map( target => target );
+            return ARtargets;
+        }
+
+    }
     render() {
-    let ARtargets = this.state.targets.map( target => target );
+    
           
         
         return (
@@ -137,8 +144,7 @@ class VisionAR extends Component {
                 thing={this.state.testText}
                 onClick={this.bake}
                 />
-
-                {ARtargets}
+                {this.grabRenderables()}
             
             </ViroARScene>
         );
