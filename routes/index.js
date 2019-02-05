@@ -22,7 +22,7 @@ async function detectText() {
     console.log('Text:');
     detections.forEach(text => console.log(text));
     // [END vision_text_detection]
-    return detections[0].description;
+    return detections[0];
 }
 
 module.exports = router;

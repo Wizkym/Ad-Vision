@@ -57,7 +57,8 @@ export default class Customize extends Component {
             </View>
             <View style={{position: 'absolute', right: 0, bottom: 15,}}>
                 <TouchableHighlight style={styles.back}
-                                    onPress={this.props._getExperienceButtonOnPress(AR_NAVIGATOR_TYPE)}
+                                    //onPress={this.props._getExperienceButtonOnPress(AR_NAVIGATOR_TYPE)}
+                                    onPress={this.props._handlePress}
                                     underlayColor={'#00000000'}>
                     <Text style={{fontWeight: 'bold', fontSize: 20}}>START</Text>
                 </TouchableHighlight>

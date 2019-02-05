@@ -1,5 +1,5 @@
 const fs = require('fs');
-//const https = require('https');
+const https = require('https');
 const express = require('express');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
@@ -23,7 +23,7 @@ const certOptions = {
     cert: fs.readFileSync(path.resolve('src/utils/certoptions/server.crt'))
 };
 
-/* Start the API server
+/*Start the API server
 const server = https.createServer(certOptions, app).listen(PORT, err => {
     if (err) {
         console.error(err);

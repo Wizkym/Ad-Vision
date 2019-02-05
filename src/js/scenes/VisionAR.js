@@ -26,7 +26,6 @@ class VisionAR extends Component {
 
         // Bind 'this' to functions
         this._onInitialized = this._onInitialized.bind(this);
-        this._handlePress = this._handlePress.bind(this);
 
        // Set media to display after image recognition
         ViroMaterials.createMaterials({
@@ -91,18 +90,11 @@ class VisionAR extends Component {
             this.setState({
                 text : "Hello World!"
             });
-            this._handlePress();
         } else if (state === ViroConstants.TRACKING_NONE) {
             // Handle loss of tracking
         }
     }
 
-    // Google Cloud Vision function
-    _handlePress = async () => {
-        fetch('http://localhost:3085/')
-            .then(data => alert(data))
-            .catch(err => alert(err));
-    }
 }
 
 module.exports = VisionAR;
