@@ -1,10 +1,9 @@
-'use strict'
 
 import React from "react";
 import { renderables, Target } from "../js/helpers/tester"
 import { ViroARTrackingTargets } from "react-viro";
 
-export const targets =
+let targets =
 {
     "apple": {
         source: require('../js/res/apple.jpg'),
@@ -23,34 +22,44 @@ export const targets =
     }
 }
 
+const initializationTracker = {
+    trackersAlreadyMade : false
+}
+
 export function emptyTracker() {
-    for (let x in targets) {
+    /* for (let x in targets) {
         ViroARTrackingTargets.deleteTarget(x);
-    }
+    } */
+
+    renderables.data = [];
     renderables.hasBeenFilled = false;
+    
 }
 
 export function fillAndRender() {
-    fillTracker.then(() => setTimeout(() => {
-        renderTrackers();
-    }, 1500)
-
-    ).catch((err) => alert('Something went wrong. Rendering failed'));
+    fillTracker(targets);
+    setTimeout( () => {
+        renderTrackers()
+    }, 1000);
+        
 }
 
 
 
-const fillTracker = new Promise(function (resolve, reject) {
-    //alert(JSON.stringify(targets));
-    resolve(ViroARTrackingTargets.createTargets(targets));
+const fillTracker = (obj) => {
 
-});
+    if(!initializationTracker.trackersAlreadyMade){
+        ViroARTrackingTargets.createTargets(obj);
+        initializationTracker.trackersAlreadyMade = true;
+    }
+    
+}
+
 
 function renderTrackers() {
     for (let x in targets) {
         Target("box", x);
 
-        //alert(x);
     }
 }
 

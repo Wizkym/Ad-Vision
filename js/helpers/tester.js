@@ -1,4 +1,3 @@
-'use strict';
 
 import React from "react";
 
@@ -30,7 +29,6 @@ export function Target(type, name) {
                     opacity={0.0}
                     scale={[0.0, 0.0, 0.0]}
                     materials={["apple"]}
-                    key={dummyKey}
                     animation={{
                         name: 'plswrk', delay: 3000, run: true
                     }} />
@@ -55,7 +53,7 @@ const dummyKeyGen = () => {
 
 }
 
-export const renderables = {
+export let renderables = {
     data: [],
     hasBeenFilled: false
 };
