@@ -47,6 +47,7 @@ export default class Landing extends Component {
         this._getExperienceButtonOnPress = this._getExperienceButtonOnPress.bind(this);
         this._exitViro = this._exitViro.bind(this);
         this._checkBoxText =this._checkBoxText.bind(this);
+        this._handlePress = this._handlePress.bind(this);
     }
 
     // Conditional rendering
@@ -132,6 +133,7 @@ export default class Landing extends Component {
                    techIsChecked={this.state.techIsChecked}
                    educationIsChecked={this.state.educationIsChecked}
                    _exitViro={this._exitViro}
+                   _handlePress={this._handlePress}
         />
     );
 
@@ -182,5 +184,13 @@ export default class Landing extends Component {
                             noneChecked:!this.state.noneChecked
                         });
     };
+
+    // Google Cloud Vision function
+    _handlePress = async () => {
+        fetch('http://192.168.1.85:3085/', {method: 'GET'})
+            .then(response => response.json())
+            .then((response) => alert(response.description))
+            .catch(err => alert(err));
+    }
 
 }
