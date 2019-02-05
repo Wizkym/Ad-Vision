@@ -1,7 +1,7 @@
 'use strict'
 
 import React from "react";
-import {Target} from "../js/helpers/tester"
+import { renderables, Target } from "../js/helpers/tester"
 import { ViroARTrackingTargets } from "react-viro";
 
 export const targets =
@@ -23,25 +23,31 @@ export const targets =
     }
 }
 
-export function emptyTracker(){
-    for(let x in targets){
+export function emptyTracker() {
+    for (let x in targets) {
         ViroARTrackingTargets.deleteTarget(x);
     }
+    renderables.hasBeenFilled = false;
 }
 
-export function fillAndRender(){
-    fillTracker.then(() => renderTrackers())
+export function fillAndRender() {
+    fillTracker.then(() => setTimeout(() => {
+        renderTrackers();
+    }, 1500)
+
+    ).catch((err) => alert('Something went wrong. Rendering failed'));
 }
 
 
 
-const fillTracker = new Promise(function(resolve, reject) {
+const fillTracker = new Promise(function (resolve, reject) {
+    //alert(JSON.stringify(targets));
     resolve(ViroARTrackingTargets.createTargets(targets));
 
-  });
+});
 
-function renderTrackers(){
-    for(let x in targets){
+function renderTrackers() {
+    for (let x in targets) {
         Target("box", x);
 
         //alert(x);
