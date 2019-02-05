@@ -111,11 +111,16 @@ export default class Landing extends Component {
     }
 
     // Returns the ViroARSceneNavigator which will start the AR experience
+    // NOTE: make refresh button that refreshes the entire scence. BC once you switch to the Customize scence and return to ARScene,
+    //You are are to render the models again ( seems like you only track to images on Andriod haven't tested on IOS)
     _getARNavigator() {
         return (
             <View style={{ flex: 1 }}>
                 <ViroARSceneNavigator {...this.state.sharedProps}
-                    initialScene={{ scene: ARScene }} />
+                    initialScene={{ scene: ARScene }}
+                    numberOfTrackedImages={5}
+
+ />
 
                 <Status 
                 tracking={this.state.trackingActive}
@@ -190,12 +195,14 @@ export default class Landing extends Component {
             newState.trackingActive = true;
             this.setState(newState);
             fillAndRender();
+            
         }
         else {
             let newState = {...this.state};
             newState.trackingActive = false;
             this.setState(newState);
             emptyTracker();
+            
         }
 
     }

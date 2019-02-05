@@ -10,11 +10,21 @@ export default {
     registerAll() {
 
         ViroAnimations.registerAnimations({
+            animateBlock:{
+                properties:{
+                    scaleX: 0.1,
+                    scaleY:0.1,
+                    scaleZ:0.1,
+                    opacity: 1.0
+                },
+                easing: "Bounce",
+                duration: 1000
+            },
             animateOpacity1: {
                 properties: {
                     scaleX: 0.01,
-                    scaleY:0.1,
-                    scaleZ:0.1,
+                    scaleY:0.01,
+                    scaleZ:0.01,
                     opacity: 0.1
                 },
 
@@ -118,7 +128,7 @@ export default {
                 },
 
                 easing:"Bounce", 
-                duration:80
+                duration:1000
             },
             
             rotate:{properties:{rotateZ:"+=360"}, duration:5000},

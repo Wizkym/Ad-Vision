@@ -5,8 +5,8 @@ import React, { Component } from 'react';
 import particle from '../helpers/particle';
 
 import anims from '../helpers/animate';
-import Tester from '../helpers/tester';
 import TextTester from '../tester/TextTester';
+
 
 
 import {
@@ -31,7 +31,8 @@ import {
     ViroQuad,
     ViroText,
     ViroButton,
-    ViroFlexView
+    ViroFlexView,
+    ViroNode
 } from 'react-viro';
 import { View } from 'react-native-animatable';
 import { runTestEmitter, renderables } from '../helpers/tester';
@@ -45,8 +46,8 @@ class VisionAR extends Component {
         this.state = {
             text: "Initializing AR...",
             testText: "Click the pink circle after initializing tracking",
-            playAnim: false,
-            canRenderARComponents : false,
+            canplayAnims: false,
+            canRenderARComponents: false,
             targets: []
         };
 
@@ -57,11 +58,6 @@ class VisionAR extends Component {
         this._onBufferStart = this._onBufferStart.bind(this);
         this._onStart = this._onStart.bind(this);
         this.changeTitle = this.changeTitle.bind(this);
-
-
-
-
-
 
         // Set media to display after image recognition
         ViroMaterials.createMaterials({
@@ -80,12 +76,18 @@ class VisionAR extends Component {
         //needs to be remove, see Landing.js
 
     }
+    componentDidMount = () => {
+        //alert(JSON.stringify(this.state.targets));
+    }
 
+    componentDidUpdate = () => {
+        //alert(JSON.stringify(this.state.targets));
+    }
     _onInitialized(state, reason) {
         if (state === ViroConstants.TRACKING_NORMAL) {
-            this.setState({
+            /* this.setState({
                 text: "Hello World!"
-            });
+            }); */
         } else if (state === ViroConstants.TRACKING_NONE) {
             // Handle loss of tracking
         }
@@ -97,61 +99,98 @@ class VisionAR extends Component {
         particle.Firework([0, 0, 0], 4200, "fxparttinyglowy.png", false, 1800);
     }
     changeTitle = () => {
-        let newState = {...this.state};
+        let newState = { ...this.state };
         newState.testText = "Yare Yare Daze";
         this.setState(newState);
     }
     bake = () => {
-        let newState = {...this.state};
-        
-        if(renderables.hasBeenFilled){
-            for(let i = 0; i < renderables.data.length; i++){
+        let newState = { ...this.state };
+
+        if (renderables.hasBeenFilled && this.state.targets.length < 1) {
+            for (let i = 0; i < renderables.data.length; i++) {
+
                 newState.targets.push(renderables.data[i]);
+
             }
+            newState.canRenderARComponents = true;
+        } else {
+            newState.targets = [];
         }
-        
+
         this.setState(newState);
     }
     checkIfRenderablesEmpty = () => {
         setInterval(() => {
-            if(!renderables.hasBeenFilled && this.state.targets.length > 1){
-                //alert('Scene will now refresh')
-                let newState = {...this.state};
+            if (!renderables.hasBeenFilled && this.state.targets.length > 0) {
+
+                let newState = { ...this.state };
                 newState.targets = [];
+                newState.canRenderARComponents = false;
+                newState.canplayAnims = false;
                 this.setState(newState);
-            }else{
+                //alert('Scene will now refresh');
+            } else {
                 return;
             }
-        }, 1000);
+        }, 300);
     }
+
     grabRenderables = () => {
+        let ARtargets = this.state.targets.map(target =>
 
-        if(this.state.targets.length > 1){
-            let ARtargets = this.state.targets.map( target => target );
-            return ARtargets;
-        }
+            <ViroNode key={this.dummyKeyGen}>
+                <ViroARImageMarker target={target} key={this.dummyKeyGen}  onAnchorFound={
+            () => this.setState({
+                canplayAnims: true
+            })}  >
+                    
+                <ViroNode key={target + "1"} position={[0, 0, 0]}>
+                    { this.state.canplayAnims ? particle.Firework([0, 0, 0], 4200, "fxparttinyglowy.png", false) : null}
+                    <ViroBox position={[0, 0, 0]}
+                        opacity={0.2}
+                        scale={[0.0, 0.0, 0.0]}
+                        materials={["apple"]}
+                        animation={{
+                            name: 'animateBlock', delay:700, run: this.state.canplayAnims
+                        }}
+                    />
+                    </ViroNode>
+                </ViroARImageMarker>
+            </ViroNode>
 
+
+        );
+
+
+        return ARtargets;
+
+    }
+    dummyKeyGen = () => {
+        return Math.floor(Math.random() * 900000) + 100000;
     }
     render() {
-    
-          
-        
+
+
         return (
+
+
+
             <ViroARScene onTrackingUpdated={this._onInitialized} >
                 {this.checkIfRenderablesEmpty()}
                 {anims.registerAll()}
-                <TextTester 
-                thing={this.state.testText}
-                onClick={this.bake}
+
+                {this.state.canRenderARComponents ? this.grabRenderables() : null}
+
+                <TextTester
+                    thing={this.state.testText}
+                    onClick={this.bake}
                 />
-                {this.grabRenderables()}
-            
+
+
+
             </ViroARScene>
         );
     }
-
-
-
 }
 
 

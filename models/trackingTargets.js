@@ -3,7 +3,7 @@ import React from "react";
 import { renderables, Target } from "../js/helpers/tester"
 import { ViroARTrackingTargets } from "react-viro";
 
-let targets =
+export const targets =
 {
     "apple": {
         source: require('../js/res/apple.jpg'),
@@ -40,7 +40,7 @@ export function fillAndRender() {
     fillTracker(targets);
     setTimeout( () => {
         renderTrackers()
-    }, 1000);
+    }, 300);
         
 }
 
@@ -51,6 +51,8 @@ const fillTracker = (obj) => {
     if(!initializationTracker.trackersAlreadyMade){
         ViroARTrackingTargets.createTargets(obj);
         initializationTracker.trackersAlreadyMade = true;
+    }else{
+        return;
     }
     
 }
@@ -58,7 +60,9 @@ const fillTracker = (obj) => {
 
 function renderTrackers() {
     for (let x in targets) {
+        /* Target("box", x); */
         Target("box", x);
+
 
     }
 }
