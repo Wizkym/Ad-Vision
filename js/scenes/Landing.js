@@ -185,19 +185,17 @@ export default class Landing extends Component {
     }
     _toggleTargeting() {
         if (!this.state.trackingActive) {
-            fillAndRender();
+            
             let newState = {...this.state};
             newState.trackingActive = true;
             this.setState(newState);
+            fillAndRender();
         }
         else {
-            emptyTracker();
             let newState = {...this.state};
             newState.trackingActive = false;
             this.setState(newState);
-            setTimeout(()=> {
-                alert("Tracker has been emptied");
-            },1500)
+            emptyTracker();
         }
 
     }
