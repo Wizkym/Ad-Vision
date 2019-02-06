@@ -19,22 +19,17 @@ export function Target(type, name) {
 
     if (type === "box") {
         renderables.data.push(name);
-          /*   { <ViroARImageMarker target={name} key={dummyKey} >
-                <ViroBox position={[0, 0, 0]}
-                    opacity={0.0}
-                    scale={[0.0, 0.0, 0.0]}
-                    materials={["apple"]}
-                    animation={{
-                        name: 'plswrk', delay: 3000, run: true,
-                        onStart:{runTestEmitter}
-                    }} />
-            </ViroARImageMarker> } */
         if (!renderables.hasBeenFilled) {
-            renderables.hasBeenFilled = true;
+
+            setTimeout(()=>{
+                renderables.hasBeenFilled = true;
+
+            },1000)
+            
         }
     }
 
-    //alert(JSON.stringify(renderables.data));
+
 }
 /* const dummyKeyGen = () => {
     let rnd  = Math.floor(Math.random() * 900000) + 100000;

@@ -119,6 +119,31 @@ class VisionAR extends Component {
 
         this.setState(newState);
     }
+    //set this in the render function
+    checkifRenderablesFilled = () => {
+
+        setInterval(() => {
+            if (renderables.hasBeenFilled) {
+                if (renderables.hasBeenFilled && this.state.targets.length < 1) {
+                    let newState = { ...this.state };
+                    for (let i = 0; i < renderables.data.length; i++) {
+
+                        newState.targets.push(renderables.data[i]);
+
+                    }
+                    newState.canRenderARComponents = true;
+                    this.setState(newState);
+                } 
+
+                
+            } else {
+                return;
+            }
+
+
+        }, 500)
+
+    }
     checkIfRenderablesEmpty = () => {
         setInterval(() => {
             if (!renderables.hasBeenFilled && this.state.targets.length > 0) {
@@ -138,22 +163,30 @@ class VisionAR extends Component {
     grabRenderables = () => {
         let ARtargets = this.state.targets.map(target =>
 
-            <ViroNode key={this.dummyKeyGen}>
-                <ViroARImageMarker target={target} key={this.dummyKeyGen}  onAnchorFound={
-            () => this.setState({
-                canplayAnims: true
-            })}  >
-                    
-                <ViroNode key={target + "1"} position={[0, 0, 0]}>
-                    { this.state.canplayAnims ? particle.Firework([0, 0, 0], 4200, "fxparttinyglowy.png", false) : null}
-                    <ViroBox position={[0, 0, 0]}
-                        opacity={0.2}
-                        scale={[0.0, 0.0, 0.0]}
-                        materials={["apple"]}
-                        animation={{
-                            name: 'animateBlock', delay:700, run: this.state.canplayAnims
-                        }}
-                    />
+            //testing drag plane
+            <ViroNode key={this.dummyKeyGen}
+                dragPlane={{
+                    planePoint: [0, 0, 0],
+                    planeNormal: [0, 0, 0],
+                    maxDistance: 10
+                }}
+
+            >
+                <ViroARImageMarker target={target} key={this.dummyKeyGen} onAnchorFound={
+                    () => this.setState({
+                        canplayAnims: true
+                    })}  >
+
+                    <ViroNode key={target + "1"} position={[0, 0, 0]}>
+                        {this.state.canplayAnims ? particle.Firework([0, 0, 0], 4200, "fxparttinyglowy.png", false) : null}
+                        <ViroBox position={[0, 0, 0]}
+                            opacity={0.2}
+                            scale={[0.0, 0.0, 0.0]}
+                            materials={["apple"]}
+                            animation={{
+                                name: 'animateBlock', delay: 820, run: this.state.canplayAnims
+                            }}
+                        />
                     </ViroNode>
                 </ViroARImageMarker>
             </ViroNode>
@@ -170,24 +203,16 @@ class VisionAR extends Component {
     }
     render() {
 
-
         return (
-
-
-
             <ViroARScene onTrackingUpdated={this._onInitialized} >
                 {this.checkIfRenderablesEmpty()}
+                {this.checkifRenderablesFilled()}
+
                 {anims.registerAll()}
-
                 {this.state.canRenderARComponents ? this.grabRenderables() : null}
-
                 <TextTester
-                    thing={this.state.testText}
                     onClick={this.bake}
                 />
-
-
-
             </ViroARScene>
         );
     }
