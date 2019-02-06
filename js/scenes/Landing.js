@@ -28,6 +28,7 @@ const ARScene = require('./VisionAR');
 const UNSET = "UNSET";
 const AR_NAVIGATOR_TYPE = "AR";
 const LOGIN_NAVIGATOR_TYPE = "LOGIN";
+const REFRESH_NAVIGATOR_TYPE = "REFRESH";
 
 // This determines which type of experience to launch in, or UNSET, if the user should
 // be presented with a choice of AR or VR. By default, we offer the user a choice.
@@ -44,7 +45,8 @@ export default class Landing extends Component {
             artIsChecked: false,
             techIsChecked: false,
             educationIsChecked: false,
-            trackingActive: false
+            trackingActive: false,
+            trackingCount: 0  
         };
 
         this._getExperienceSelector = this._getExperienceSelector.bind(this);
@@ -53,6 +55,8 @@ export default class Landing extends Component {
         this._exitViro = this._exitViro.bind(this);
         this._checkBoxText = this._checkBoxText.bind(this);
         this._toggleTargeting = this._toggleTargeting.bind(this);
+        this._refreshScene = this._refreshScene.bind(this);
+        this._checkIfTrackingCountExceeds = this._checkIfTrackingCountExceeds.bind(this);
     }
 
     // Conditional rendering
@@ -63,10 +67,28 @@ export default class Landing extends Component {
             return this._getCustomizeScreen();
         } else if (this.state.navigator === AR_NAVIGATOR_TYPE) {
             return this._getARNavigator();
+        }else if(this.state.navigator === REFRESH_NAVIGATOR_TYPE){
+            return this._refreshScene();
         }
 
     }
-
+    _refreshScene(){
+        return (
+            <View style={styles.viroContainer} >
+                <ScrollView style={styles.viroContainer} contentContainerStyle={styles.contentContainer}>
+                    <View style={styles.outer} >
+                        <View style={styles.inner} >
+                            <Animatable.Text animation="slideInDown"
+                                iterationCount="infinite"
+                                direction="alternate"
+                                style={styles.titleText}>
+                                Refreshing AR Scene</Animatable.Text>
+                        </View>
+                    </View>
+                </ScrollView>
+            </View>
+        );
+    }
     // Presents the user with a choice of an AR or VR experience
     _getExperienceSelector() {
         return (
@@ -188,22 +210,46 @@ export default class Landing extends Component {
             navigator: UNSET
         })
     }
+    _checkIfTrackingCountExceeds(){
+        if(this.state.trackingCount >= 2){
+            let newState = {...this.state}
+            newState.trackingCount = 0;
+            newState.navigator = REFRESH_NAVIGATOR_TYPE; 
+            this.setState(newState);
+
+            setTimeout( () => {
+                let newState = {...this.state}
+                newState.trackingCount = 0;
+                newState.navigator = AR_NAVIGATOR_TYPE;
+                this.setState(newState);
+            }, 1000 )
+        }else{
+            return;
+        }
+
+    }
     _toggleTargeting() {
         if (!this.state.trackingActive) {
-            
             let newState = {...this.state};
             newState.trackingActive = true;
+            newState.trackingCount = newState.trackingCount + 1;
             this.setState(newState);
             fillAndRender();
+            this._checkIfTrackingCountExceeds();
             
         }
         else {
             let newState = {...this.state};
             newState.trackingActive = false;
+            
             this.setState(newState);
             emptyTracker();
+
+            
             
         }
+
+        
 
     }
 
