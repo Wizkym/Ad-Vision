@@ -9,7 +9,8 @@ import {
 
 import Customize from './Customize';
 import styles from '../../assets/styles/styles';
-import renderIf from '../helpers/renderIf';
+import Share from 'react-native-share';
+import Video from 'react-native-video';
 import {
     ViroARSceneNavigator,
     ViroConstants} from 'react-viro';
@@ -151,7 +152,31 @@ export default class Landing extends Component {
     // Share Screen
     _renderShareScreen() {
         return(
-            <Image source={{uri:this.state.imgUrl}} style={styles.backgroundImage} resizeMethod={'resize'} />
+            <View style={styles.shareScreenContainerTransparent}>
+                <Image source={{uri:this.state.imgUrl}} style={styles.backgroundImage} resizeMethod={'resize'} />
+
+                /* Close button -> Takes user back to AR screen */
+                <View style={{position:'absolute', left:20, top:20, width:30, height:30}}>
+                    <TouchableHighlight style={styles.back}
+                                        onPress={this._getExperienceButtonOnPress(AR_NAVIGATOR_TYPE)}
+                                        underlayColor={'#00000000'}>
+                        <View>
+                            <Image source={require('../res/btn_close.png')} style={{position: 'absolute', height: 23, width: 23}}/>
+                        </View>
+                    </TouchableHighlight>
+                </View>
+
+                /* Share button -> For users to share screenshots */
+                <View style={{position:'absolute', left:85, bottom:20, width:40, height:40}}>
+                    <TouchableHighlight style={styles.back}
+                                        onPress={this._openShareActionSheet}
+                                        underlayColor={'#00000000'}>
+                        <View>
+                            <Image source={require('../res/btn_share.png')} style={{position: 'absolute', height: 35, width: 35}}/>
+                        </View>
+                    </TouchableHighlight>
+                </View>
+            </View>
         )
     }
 
@@ -253,6 +278,16 @@ export default class Landing extends Component {
             .then(response => response.json())
             .then((response) => alert(response.description))
             .catch(err => alert(err));
+    };
+
+    // Share function to enable users share screenshots
+    _openShareActionSheet = async ()  => {
+        await Share.open({
+            subject: "#FigmentAR",
+            message: "#FigmentAR",
+            url: this.state.imgUrl,
+            type: 'image/png'
+        });
     }
 
 }
