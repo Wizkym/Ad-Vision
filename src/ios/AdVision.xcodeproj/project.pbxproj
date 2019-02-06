@@ -42,7 +42,9 @@
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		99E762F497B381D7F214004C /* Pods_AdVision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9B34E90DEFA400BD0036A3 /* Pods_AdVision.framework */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
-		B57FFBEA2209E69800FF6D67 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B57FFBE92209E69800FF6D67 /* ExternalAccessory.framework */; };
+		B57FFBEA2209E69800FF6D67 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B57FFBE92209E69800FF6D67 /* ExternalAccessory.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		B57FFC8B220B3FDF00FF6D67 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B57FFC8A220B3FDF00FF6D67 /* Social.framework */; };
+		B57FFC8D220B3FF100FF6D67 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B57FFC8C220B3FF100FF6D67 /* MessageUI.framework */; };
 		D7CF3F604E524CD3A5E022F8 /* Orbitron-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EB993B70F4048AD8AE9D2BC /* Orbitron-Medium.ttf */; };
 /* End PBXBuildFile section */
 
@@ -357,6 +359,8 @@
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		B57FFBE92209E69800FF6D67 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		B57FFBEB2209E69800FF6D67 /* AdVision.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = AdVision.entitlements; path = AdVision/AdVision.entitlements; sourceTree = "<group>"; };
+		B57FFC8A220B3FDF00FF6D67 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		B57FFC8C220B3FF100FF6D67 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		E39679E02E304BE1BBD9BE35 /* Orbitron-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Orbitron-Black.ttf"; path = "../assets/fonts/Orbitron-Black.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -373,6 +377,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B57FFC8D220B3FF100FF6D67 /* MessageUI.framework in Frameworks */,
+				B57FFC8B220B3FDF00FF6D67 /* Social.framework in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -536,6 +542,8 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B57FFC8C220B3FF100FF6D67 /* MessageUI.framework */,
+				B57FFC8A220B3FDF00FF6D67 /* Social.framework */,
 				B57FFBE92209E69800FF6D67 /* ExternalAccessory.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
 				5C9B34E90DEFA400BD0036A3 /* Pods_AdVision.framework */,
@@ -1151,7 +1159,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
 		1156F546840C174C40670546 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1208,9 +1216,15 @@
 				"${PODS_ROOT}/Target Support Files/Pods-AdVision/Pods-AdVision-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSDynamoDB/AWSDynamoDB.framework",
+				"${BUILT_PRODUCTS_DIR}/DoubleConversion/DoubleConversion.framework",
+				"${BUILT_PRODUCTS_DIR}/Folly/folly.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/RNShare/RNShare.framework",
+				"${BUILT_PRODUCTS_DIR}/React/React.framework",
 				"${PODS_ROOT}/../../node_modules/react-viro/ios/dist/ViroRenderer/ViroKit.framework",
+				"${BUILT_PRODUCTS_DIR}/glog/glog.framework",
+				"${BUILT_PRODUCTS_DIR}/yoga/yoga.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -1218,9 +1232,15 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSDynamoDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DoubleConversion.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/folly.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RNShare.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/React.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ViroKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/glog.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/yoga.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

@@ -104,6 +104,16 @@ const styles = StyleSheet.create({
         right: 0,
         resizeMode:'stretch',
     },
+    shareScreenContainerTransparent: {
+        position : 'absolute',
+        flex:1,
+        top: 0,
+        left: 0,
+        bottom: 0,
+        right: 0,
+        alignItems:'center',
+        backgroundColor : '#000000',
+    }
 });
 
 export default styles;
