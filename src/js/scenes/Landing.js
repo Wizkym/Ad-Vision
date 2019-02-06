@@ -140,7 +140,7 @@ export default class Landing extends Component {
 
                 <View style={{position: 'absolute', left: 175, right: 0, bottom: 15}}>
                     <TouchableHighlight style={styles.back}
-                                        onPress={() => {this._takeScreenShot()}}
+                                        onPress={this._takeScreenShot}
                                         underlayColor={'#00000000'}>
                         <Image source={require('../res/icon_360_w.png')} style={{height: 30, width: 40}}/>
                     </TouchableHighlight>
@@ -148,38 +148,6 @@ export default class Landing extends Component {
             </View>
         );
     }
-
-    // Share Screen
-    _renderShareScreen() {
-        return(
-            <View style={styles.shareScreenContainerTransparent}>
-                <Image source={{uri:this.state.imgUrl}} style={styles.backgroundImage} resizeMethod={'resize'} />
-
-                /* Close button -> Takes user back to AR screen */
-                <View style={{position:'absolute', left:20, top:20, width:30, height:30}}>
-                    <TouchableHighlight style={styles.back}
-                                        onPress={this._getExperienceButtonOnPress(AR_NAVIGATOR_TYPE)}
-                                        underlayColor={'#00000000'}>
-                        <View>
-                            <Image source={require('../res/btn_close.png')} style={{position: 'absolute', height: 23, width: 23}}/>
-                        </View>
-                    </TouchableHighlight>
-                </View>
-
-                /* Share button -> For users to share screenshots */
-                <View style={{position:'absolute', left:85, bottom:20, width:40, height:40}}>
-                    <TouchableHighlight style={styles.back}
-                                        onPress={this._openShareActionSheet}
-                                        underlayColor={'#00000000'}>
-                        <View>
-                            <Image source={require('../res/btn_share.png')} style={{position: 'absolute', height: 35, width: 35}}/>
-                        </View>
-                    </TouchableHighlight>
-                </View>
-            </View>
-        )
-    }
-
 
     // Returns the Customize Screen
     _getCustomizeScreen = () => (
@@ -197,28 +165,6 @@ export default class Landing extends Component {
     // Helper function called while initializing <ViroARSceneNavigator>
     _setARNavigatorRef(ARNavigator){
         this._arNavigator = ARNavigator;
-    }
-
-    // Screenshots
-    _takeScreenShot() {
-        this._arNavigator.sceneNavigator.takeScreenshot("vision_still_" + this.state.screenshot_count, false)
-            .then((retDict)=>{
-                if (!retDict.success) {
-                    if (retDict.errorCode === ViroConstants.RECORD_ERROR_NO_PERMISSION) {
-                        alert("Please allow camera permissions!");
-                    }
-                }
-                let currentCount = this.state.screenshot_count + 1;
-                this.setState({
-                    imgUrl: "file://" + retDict.url,
-                    screenshot_count: currentCount,
-                    navigator : SHARE
-                });
-                alert('Screenshot Check');
-            })
-            .catch(err => {
-                alert('This dont work!');
-            });
     }
 
     // This function returns an anonymous/lambda function to be used
@@ -253,21 +199,74 @@ export default class Landing extends Component {
                 homeIsChecked:!this.state.homeIsChecked
             })
             : topic === 'Technology'?
+            this.setState({
+                techIsChecked:!this.state.techIsChecked
+            })
+            : topic === 'Art'?
                 this.setState({
-                    techIsChecked:!this.state.techIsChecked
+                    artIsChecked:!this.state.artIsChecked
                 })
-                : topic === 'Art'?
+                : topic === 'Education'?
                     this.setState({
-                        artIsChecked:!this.state.artIsChecked
+                        educationIsChecked:!this.state.educationIsChecked
                     })
-                    : topic === 'Education'?
-                        this.setState({
-                            educationIsChecked:!this.state.educationIsChecked
-                        })
-                        : this.setState({
-                            noneChecked:!this.state.noneChecked
-                        });
+                    : this.setState({
+                        noneChecked:!this.state.noneChecked
+                    });
     };
+
+    // Screenshots
+    _takeScreenShot() {
+        this._arNavigator.sceneNavigator.takeScreenshot("vision_still_" + this.state.screenshot_count, false)
+            .then((retDict)=>{
+                if (!retDict.success) {
+                    if (retDict.errorCode === ViroConstants.RECORD_ERROR_NO_PERMISSION) {
+                        alert("Please allow camera permissions!");
+                    }
+                }
+                let currentCount = this.state.screenshot_count + 1;
+                this.setState({
+                    imgUrl: "file://" + retDict.url,
+                    screenshot_count: currentCount,
+                    navigator : SHARE
+                });
+                alert('Screenshot Check');
+            })
+            .catch(err => {
+                alert('This dont work!');
+            });
+    }
+
+    // Share Screen
+    _renderShareScreen() {
+        return(
+            <View style={styles.shareScreenContainerTransparent}>
+                <Image source={{uri:this.state.imgUrl}} style={styles.backgroundImage} resizeMethod={'resize'} />
+
+                {/* Close button -> Takes user back to AR screen */}
+                <View style={{position:'absolute', left:20, top:20, width:30, height:30}}>
+                    <TouchableHighlight style={styles.back}
+                                        onPress={this._getExperienceButtonOnPress(AR_NAVIGATOR_TYPE)}
+                                        underlayColor={'#00000000'}>
+                        <View>
+                            <Image source={require('../res/btn_close.png')} style={{position: 'absolute', height: 23, width: 23}}/>
+                        </View>
+                    </TouchableHighlight>
+                </View>
+
+                {/* Share button -> For users to share screenshots */}
+                <View style={{position:'absolute', left:85, bottom:20, width:40, height:40}}>
+                    <TouchableHighlight style={styles.back}
+                                        onPress={this._openShareActionSheet}
+                                        underlayColor={'#00000000'}>
+                        <View>
+                            <Image source={require('../res/btn_share.png')} style={{position: 'absolute', height: 35, width: 35}}/>
+                        </View>
+                    </TouchableHighlight>
+                </View>
+            </View>
+        )
+    }
 
     // Google Cloud Vision function
     _handlePress = async () => {
@@ -283,10 +282,10 @@ export default class Landing extends Component {
     // Share function to enable users share screenshots
     _openShareActionSheet = async ()  => {
         await Share.open({
-            subject: "#FigmentAR",
-            message: "#FigmentAR",
+            subject: "#AdVision",
+            message: "#AdVision",
             url: this.state.imgUrl,
-            type: 'image/png'
+            type: "image/png"
         });
     }
 
