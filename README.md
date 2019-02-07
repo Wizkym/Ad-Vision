@@ -21,6 +21,9 @@ Travis CI Status\
 * George Rincon || [grincon0](https://github.com/grincon0) || Database implementation + ParticleSFX & Component Development
 * David Baker || [DavidDBaker](https://github.com/DavidDBaker) || 3D component testing + AWS Product Advertising API
 
+##Demo
+![Trello](src/assets/images/demo.jpeg)
+
 ## Trello
 ![Trello](src/js/res/trello.png)
 

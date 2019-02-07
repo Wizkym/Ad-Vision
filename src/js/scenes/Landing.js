@@ -390,7 +390,7 @@ export default class Landing extends Component {
         /*
             TODO: Insert your ip address below
         */
-        fetch('http://192.168.0.30:3085/', {
+        fetch('http://10.136.13.80:3085/', {
             method: 'POST',
             body: data
         })
