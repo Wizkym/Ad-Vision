@@ -234,18 +234,16 @@ class VisionAR extends Component {
 
                     animation={{
                         name: 'animateUp', delay: 1000, run: this.state.canplayAnims
-                    }}
-                >
+                    }}>
 
                     <ViroText
                         width={14} height={8}
                         rotation={[-90, 0, 0]}
-                        text="The Coca-Cola Company (NYSE: KO) is a total beverage company, offering over 500 brands in more than 200 countries and territories. In addition to the company’s Coca-Cola brands, our portfolio includes some of the world’s most valuable beverage brands, such as AdeS soy-based beverages, Ayataka green tea, Dasani waters, Del Valle juices and nectars, Fanta, Georgia coffee, Gold Peak teas and coffees, Honest Tea, innocent smoothies and juices, Minute Maid juices, Powerade sports drinks, Simply juices, smartwater, Sprite, vitaminwater and ZICO coconut water."
+                        text={this.props.arSceneNavigator.viroAppProps.text}
                         color="#ffffff"
                         scale={[.03, .03, .03]}
                         style={{ fontFamily: "Arial", fontSize: 40, fontWeight: "400", fontStyle: "normal", color: "#ffffff" }}
                     />
-
 
                 </ViroNode>
                 <ViroNode>

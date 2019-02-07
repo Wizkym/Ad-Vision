@@ -9,7 +9,7 @@ import {
 
 import Customize from './Customize';
 import styles from '../../assets/styles/styles';
-/* import Share from 'react-native-share'; */
+import Share from 'react-native-share';
 import Video from 'react-native-video';
 import {
     ViroARSceneNavigator,
@@ -56,7 +56,8 @@ export default class Landing extends Component {
             screenshot_count: 0,
             imgUrl: '',
             trackingActive: false,
-            trackingCount: 0
+            trackingCount: 0,
+            infoReturned: ''
         };
 
         this._getExperienceSelector = this._getExperienceSelector.bind(this);
@@ -159,6 +160,7 @@ export default class Landing extends Component {
                                       initialScene={{scene: ARScene}}
                                       numberOfTrackedImages={5}
                                       ref={this._setARNavigatorRef}
+                                      viroAppProps={{text: this.state.infoReturned}}
                 />
 
                 <Status
@@ -393,18 +395,24 @@ export default class Landing extends Component {
             body: data
         })
             .then(response => response.json())
-            .then((response) => alert(response.snip))
+            .then((response) => {
+                this.setState({
+                    infoReturned: response.snip,
+                    navigator: AR_NAVIGATOR_TYPE
+                });
+                alert(this.state.infoReturned);
+            })
             .catch(err => alert(err));
     };
 
     // Share function to enable users share screenshots
-/* /    _openShareActionSheet = async () => {
+    _openShareActionSheet = async () => {
         await Share.open({
             subject: "#AdVision",
             message: "#AdVision",
             url: this.state.imgUrl,
             type: "image/png"
          });
-    } */
+    }
 
 }

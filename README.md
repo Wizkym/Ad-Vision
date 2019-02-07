@@ -22,8 +22,8 @@ Travis CI Status\
 * David Baker || [DavidDBaker](https://github.com/DavidDBaker) || 3D component testing + AWS Product Advertising API
 
 ## Trello
-![Trello](/js/res/trello.png)
+![Trello](src/js/res/trello.png)
 
 ## Wireframe
-![Layout](/js/res/wire.png)
+![Layout](src/js/res/wire.png)
 
