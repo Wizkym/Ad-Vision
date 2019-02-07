@@ -10,12 +10,11 @@ Travis CI Status\
 
 * ViroReact
 * React Native
-* MongoDB
 * Express
 * Node.js
 * GraphQL
 * Cloud Vision API
-* AWS Product Advertising API
+* Bing Custom Search API
 
 ## Team Members & Roles
 
