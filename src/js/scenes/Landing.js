@@ -372,18 +372,28 @@ export default class Landing extends Component {
 
     // Google Cloud Vision function
     _handlePress = async () => {
-        let formData = new FormData();
-        let file = this.state.imgUrl;
-        formData.append('photo', file);
+        let filePath = this.state.imgUrl;
+        let name = "vision_still_" + this.state.screenshot_count + ".png";
+        let type = 'image/png';
+        alert(name);
+
+        const file = {
+            uri: filePath,
+            name: name,
+            type: type
+        };
+        const data = new FormData();
+        data.append('photo', file);
+
         /*
             TODO: Insert your ip address below
         */
         fetch('http://192.168.0.30:3085/', {
-            method: 'PUT',
-            body: formData
+            method: 'POST',
+            body: data
         })
             .then(response => response.json())
-            .then((response) => alert(response.description))
+            .then((response) => alert(response.snip))
             .catch(err => alert(err));
     };
 
