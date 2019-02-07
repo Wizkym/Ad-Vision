@@ -255,12 +255,23 @@ export default class Landing extends Component {
                 </View>
 
                 {/* Share button -> For users to share screenshots */}
-                <View style={{position:'absolute', left:85, bottom:20, width:40, height:40}}>
+                <View style={{position:'absolute', left:20, bottom:20, width:40, height:40}}>
                     <TouchableHighlight style={styles.back}
                                         onPress={this._openShareActionSheet}
                                         underlayColor={'#00000000'}>
                         <View>
                             <Image source={require('../res/btn_share.png')} style={{position: 'absolute', height: 35, width: 35}}/>
+                        </View>
+                    </TouchableHighlight>
+                </View>
+
+                {/* Analytics Button -> For users to analyze images using Cloud Vision API*/}
+                <View style={{position:'absolute', right:20, bottom:20, width:40, height:40}}>
+                    <TouchableHighlight style={styles.back}
+                                        onPress={this._handlePress}
+                                        underlayColor={'#00000000'}>
+                        <View>
+                            <Image source={require('../res/analytics-128.png')} style={{position: 'absolute', height: 35, width: 35}}/>
                         </View>
                     </TouchableHighlight>
                 </View>
@@ -270,10 +281,16 @@ export default class Landing extends Component {
 
     // Google Cloud Vision function
     _handlePress = async () => {
+        let formData = new FormData();
+        let file = this.state.imgUrl;
+        formData.append('photo', file);
         /*
             TODO: Insert your ip address below
         */
-        fetch('http://10.136.13.80/', {method: 'GET'})
+        fetch('http://192.168.0.30:3085/', {
+            method: 'PUT',
+            body: formData
+            })
             .then(response => response.json())
             .then((response) => alert(response.description))
             .catch(err => alert(err));
