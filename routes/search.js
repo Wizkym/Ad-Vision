@@ -2,16 +2,19 @@
 
 const request = require('request');
 
-let searchTerms = 'powerade kohls apple';
+const apiKey = '###';
+const customConfigId = '###';
 
-let options = {
-  url:
-    `https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?q=${searchTerms}&customconfig=9760f4dc-5d3e-47a8-8797-91ded37df33f`,
-
-  headers: {
-    'Ocp-Apim-Subscription-Key' : 'e8d2a1ed1c8f49639d03b3f7eff8d85d'
-  }
-};
+function searchQuery() {
+  let options = {
+    url:
+      `https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?q=${searchTerms}&customconfig=9760f4dc-5d3e-47a8-8797-91ded37df33f`,
+  
+    headers: {
+      'Ocp-Apim-Subscription-Key' : 'e8d2a1ed1c8f49639d03b3f7eff8d85d'
+    }
+  };
+}
 
 request(options, (error, response, body) =>{
   let searchResponse = JSON.parse(body);
