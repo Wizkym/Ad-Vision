@@ -30,7 +30,8 @@ export default {
             },
             animateDown:{
                 properties:{
-                    positionZ : 0.09,
+                    positionZ : 0.14,
+                    positionX: -0.2,
                     opacity: 1.0
                 },
                 easing: "Bounce",
@@ -54,8 +55,8 @@ export default {
             },
             animateModel:{
                 properties:{
-                    positionZ : -0.12,
-                    positionX: 0.12,
+                    positionZ : -0.13,
+                    positionX: 0.13,
                     opacity: 1.0
                 },
                 easing: "Bounce",
@@ -172,10 +173,16 @@ export default {
                 duration:1000
             },
             
-            rotate:{properties:{rotateZ:"+=360"}, duration:5000},
+            rotate:{properties:{rotateZ:"+=360"}, duration:60000},
             plswrk:[
                 ["animateOpacity1","animateOpacity2","animateOpacity3","animateOpacity4","animateOpacity5","animateOpacity6","animateOpacity7", "animateOpacity8",
                 "animateOpacity9", "animateOpacity10"],
+            ],
+            moveAndRotate:[
+                ["animateModel", "rotate"]
+            ],
+            mainBox:[
+                ["animateBlock", "rotate"]
             ]
         });
 

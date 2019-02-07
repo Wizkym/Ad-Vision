@@ -35,39 +35,62 @@ import {
 
 import { runTestEmitter, renderables } from '../helpers/tester';
 
+const styles = StyleSheet.create({
+    textStyle: {
+        flex: 1,
+        fontFamily: 'Roboto',
+        fontSize: 40,
+        color: '#ffffff',
+        textAlignVertical: 'center',
+        textAlign: 'center',
+        fontWeight: 'bold',
+    },
+    hud: {
+        flexDirection: 'row',
+        alignItems: 'flex-start'
+    }
+});
+
 class VisionAR extends Component {
     constructor() {
         super();
-            // Set initial state here
-            this.state = {
-                text: "Initializing AR...",
-                testText: "Click the pink circle after initializing tracking",
-                canplayAnims: false,
-                canRenderARComponents: false,
-                targets: []
-            };
+        // Set initial state here
+        this.state = {
+            text: "Initializing AR...",
+            testText: "Click the pink circle after initializing tracking",
+            canplayAnims: false,
+            canRenderARComponents: false,
+            targets: []
+        };
 
-            // Bind 'this' to functions
-            this._onInitialized = this._onInitialized.bind(this);
-            this._onBufferStart = this._onBufferStart.bind(this);
-            this._onStart = this._onStart.bind(this);
-            this.changeTitle = this.changeTitle.bind(this);
+        // Bind 'this' to functions
+        this._onInitialized = this._onInitialized.bind(this);
+        this._onBufferStart = this._onBufferStart.bind(this);
+        this._onStart = this._onStart.bind(this);
+        this.changeTitle = this.changeTitle.bind(this);
 
-            // Set media to display after image recognition
-            ViroMaterials.createMaterials({
-                apple: {
-                    diffuseTexture: require('../res/apple.jpg'),
-                },
-                power: {
-                    diffuseTexture: require('../res/powerade.png'),
-                },
-                shop: {
-                    diffuseTexture: require('../res/kohls.jpg'),
-                }
-            });
+        // Set media to display after image recognition
+        ViroMaterials.createMaterials({
+            apple: {
+                diffuseTexture: require('../res/apple.jpg'),
+            },
+            power: {
+                diffuseTexture: require('../res/powerade.png'),
+            },
+            shop: {
+                diffuseTexture: require('../res/kohls.jpg'),
+            },
+            bg: {
+                diffuseTexture: require('../res/kohlsaldi2.jpg'),
+            },
+            red: {
+                lightingModel: "Constant",
+                diffuseColor: "rgb(213, 11, 11)"
+            }
+        });
 
-            // Set materials for image tracking
-            //needs to be remove, see Landing.js
+        // Set materials for image tracking
+        //needs to be remove, see Landing.js
     }
 
     _onInitialized(state, reason) {
@@ -158,115 +181,74 @@ class VisionAR extends Component {
 
             //testing drag plane
             <ViroNode key={this.dummyKeyGen}
-            dragPlane={{
-                planePoint: [0, 0, 0],
-                planeNormal: [0, 0, 0],
-                maxDistance: 10
-            }}
+                dragPlane={{
+                    planePoint: [0, 0, 0],
+                    planeNormal: [0, 0, 0],
+                    maxDistance: 10
+                }}
 
-        >
-            <ViroARImageMarker target={target} key={this.dummyKeyGen} onAnchorFound={
-                () => this.setState({
-                    canplayAnims: true
-                })}  >
+            >
+                <ViroARImageMarker target={target} key={this.dummyKeyGen} onAnchorFound={
+                    () => this.setState({
+                        canplayAnims: true
+                    })}  >
 
-                <ViroNode key={target + "1"} position={[0, 0, 0]}>
-                    {this.state.canplayAnims ? particle.Firework([0, 0, 0], 4200, "fxparttinyglowy.png", false) : null}
-                    <ViroBox position={[0, 0, 0]}
-                        opacity={0.2}
-                        scale={[0.0, 0.0, 0.0]}
-                        materials={["apple"]}
+                    <ViroNode key={target + "1"} position={[0, 0, 0]}>
+                        {this.state.canplayAnims ? particle.Firework([0, 0, 0], 4200, "fxparttinyglowy.png", false) : null}
+                        <ViroBox position={[0, 0, 0]}
+                            opacity={0.2}
+                            scale={[0.0, 0.0, 0.0]}
+                            materials={["bg"]}
+                            animation={{
+                                name: 'mainBox', delay: 820, run: this.state.canplayAnims
+                            }}
+                        />
+
+                    </ViroNode>
+                    <ViroNode
+                        key={target + "2"}
+                        position={[0, 0.05, 0]}
+                        opacity={0}
                         animation={{
-                            name: 'animateBlock', delay: 820, run: this.state.canplayAnims
-                        }}
-                    />
-
-                </ViroNode>
-                <ViroNode
-                    key={target + "2"}
-                    position={[0, 0.05, 0]}
-                    opacity={0}
-                    animation={{
-                        name: 'animateDown', delay: 1000, run: this.state.canplayAnims
-                    }}>
-                    <ViroFlexView
-                        rotation={[-90, 0, 0]}
-                        height={0.05}
-                        width={0.05}
-                    >
-                        <ViroImage
+                            name: 'animateDown', delay: 1500, run: this.state.canplayAnims
+                        }}>
+                        <ViroFlexView
+                            rotation={[-90, 0, 0]}
                             height={0.05}
                             width={0.05}
-                            opacity={1}
-                            placeholderSource={require("../res/coca-cola-can.png")}
-                            source={require("../res/coca-cola-can.png")}
+                        >
+                            <ViroImage
+                                height={0.2}
+                                width={0.4}
+                                opacity={1}
+                                placeholderSource={require("../res/kohlsaldi.jpg")}
+                                source={require("../res/kohlsaldi.jpg")}
 
-                        />
+                            />
 
-                    </ViroFlexView>
-                </ViroNode>
-                <ViroNode
-                    key={target + "3"}
-                    position={[0, 0.05, 0]}
-                    opacity={0}
-                    animation={{
-                        name: 'animateRight', delay: 1000, run: this.state.canplayAnims
-                    }}
-                >
-                    <ViroFlexView
-                        rotation={[-90, 0, 0]}
-                        height={0.05}
-                        width={0.05}>
-                        <ViroVideo
-                            height={0.1}
-                            width={0.1}
-                            source={require('../res/lights.mp4')}
-                            loop={true}
-                            materials={["shop"]}
-                        />
 
-                    </ViroFlexView>
-                </ViroNode>
-                <ViroNode
-                    key={target + "3"}
-                    position={[0, 0, 0]}
-                    opacity={0}
+                        </ViroFlexView>
+                    </ViroNode>
+               
+                    <ViroNode
+                        key={target + "3"}
+                        position={[0, 0, 0]}
+                        opacity={0}
 
-                    animation={{
-                        name: 'animateUp', delay: 1000, run: this.state.canplayAnims
-                    }}>
-
-                    <ViroText
-                        width={14} height={8}
-                        rotation={[-90, 0, 0]}
-                        text={this.props.arSceneNavigator.viroAppProps.text}
-                        color="#ffffff"
-                        scale={[.03, .03, .03]}
-                        style={{ fontFamily: "Arial", fontSize: 40, fontWeight: "400", fontStyle: "normal", color: "#ffffff" }}
-                    />
-
-                </ViroNode>
-                <ViroNode>
-                    <ViroAmbientLight color="#ffffff" />
-
-                    <Viro3DObject
-                        source={require("../res/models/coke/cokeee.obj")}
-                        resources={[require('../res/models/coke/cokeee.mtl'),
-                        require('../res/models/coke/Coca-Cola-01.jpg')
-                    ]}
-                        highAccuracyEvents={true}
-                        position={[0, 0,0 ]}
-                        scale={[0.05,0.05,0.05]}
-                        rotation={[90, 0, 0]}
-                        type="OBJ"
                         animation={{
-                            name: 'animateModel', delay: 1000, run: this.state.canplayAnims
-                        }}
-                        
+                            name: 'animateUp', delay: 1500, run: this.state.canplayAnims
+                        }}>
+
+                        <ViroText
+                            width={14} height={8}
+                            rotation={[-90, 0, 0]}
+                            text={this.props.arSceneNavigator.viroAppProps.text}
+                            color="#ffffff"
+                            scale={[.04, .04, .04]}
+                            style={{ fontFamily: "Arial", fontSize: 40, fontWeight: "400", fontStyle: "normal", color: "#ffffff" }}
                         />
 
-
-                </ViroNode>
+                    </ViroNode>
                 </ViroARImageMarker>
             </ViroNode>
 
