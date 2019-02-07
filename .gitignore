@@ -40,6 +40,9 @@ yarn-error.log
 ios/Pods/GVRSDK/Libraries/libGVRSDK.a
 ios/Pods/
 
+src/ios/Pods/GVRSDK/Libraries/libGVRSDK.a
+src/ios/Pods/
+
 # BUCK
 buck-out/
 \.buckd/
