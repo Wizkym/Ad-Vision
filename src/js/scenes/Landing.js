@@ -15,18 +15,23 @@ import {
     ViroARSceneNavigator,
     ViroConstants} from 'react-viro';
 import * as Animatable from 'react-native-animatable';
+import { emptyTracker, fillAndRender } from '../../models/trackingTargets';
+import Status from '../components/Status';
+
+
 /*
  TODO: Insert your API key below
  */
 const sharedProps = {
-    apiKey:"2491314B-56CD-4153-9187-17C7A7CDB6FD",
+    apiKey: "2491314B-56CD-4153-9187-17C7A7CDB6FD",
 };
 
 // Sets the default scene you want for AR and VR
 const ARScene = require('./VisionAR');
 const UNSET = "UNSET";
 const AR_NAVIGATOR_TYPE = "AR";
-const LOGIN_NAVIGATOR_TYPE ="LOGIN";
+const LOGIN_NAVIGATOR_TYPE = "LOGIN";
+const REFRESH_NAVIGATOR_TYPE = "REFRESH";
 const SHARE = 'SHARE';
 
 // This determines which type of experience to launch in, or UNSET, if the user should
@@ -49,7 +54,9 @@ export default class Landing extends Component {
             photoPermission: '',
             cameraPermission: '',
             screenshot_count: 0,
-            imgUrl: ''
+            imgUrl: '',
+            trackingActive: false,
+            trackingCount: 0
         };
 
         this._getExperienceSelector = this._getExperienceSelector.bind(this);
@@ -61,21 +68,43 @@ export default class Landing extends Component {
         this._checkBoxText =this._checkBoxText.bind(this);
         this._handlePress = this._handlePress.bind(this);
         this._takeScreenShot = this._takeScreenShot.bind(this);
+        this._toggleTargeting = this._toggleTargeting.bind(this);
+        this._refreshScene = this._refreshScene.bind(this);
+        this._checkIfTrackingCountExceeds = this._checkIfTrackingCountExceeds.bind(this);
     }
 
     // Conditional rendering
     render() {
         if (this.state.navigator === UNSET) {
             return this._getExperienceSelector();
-        }  else if (this.state.navigator === LOGIN_NAVIGATOR_TYPE) {
+        } else if (this.state.navigator === LOGIN_NAVIGATOR_TYPE) {
             return this._getCustomizeScreen();
         } else if (this.state.navigator === AR_NAVIGATOR_TYPE) {
             return this._getARNavigator();
         } else if (this.state.navigator === SHARE) {
             return this._renderShareScreen();
+        }else if(this.state.navigator === REFRESH_NAVIGATOR_TYPE){
+            return this._refreshScene();
         }
     }
 
+    _refreshScene(){
+        return (
+            <View style={styles.viroContainer} >
+                <ScrollView style={styles.viroContainer} contentContainerStyle={styles.contentContainer}>
+                    <View style={styles.outer} >
+                        <View style={styles.inner} >
+                            <Animatable.Text animation="slideInDown"
+                                iterationCount="infinite"
+                                direction="alternate"
+                                style={styles.titleText}>
+                                Refreshing AR Scene</Animatable.Text>
+                        </View>
+                    </View>
+                </ScrollView>
+            </View>
+        );
+    }
     // Presents the user with a choice of an AR or VR experience
     _getExperienceSelector() {
         return (
@@ -91,26 +120,26 @@ export default class Landing extends Component {
                     <View style={styles.outer} >
                         <View style={styles.inner} >
                             <Animatable.Text animation="slideInDown"
-                                             iterationCount="infinite"
-                                             direction="alternate"
-                                             style={styles.titleText}>
+                                iterationCount="infinite"
+                                direction="alternate"
+                                style={styles.titleText}>
                                 Ad~Vision</Animatable.Text>
 
                             <TouchableHighlight style={styles.buttons}
-                                                onPress={this._getExperienceButtonOnPress(LOGIN_NAVIGATOR_TYPE)}
-                                                underlayColor={'#68a0ff'} >
+                                onPress={this._getExperienceButtonOnPress(LOGIN_NAVIGATOR_TYPE)}
+                                underlayColor={'#68a0ff'} >
                                 <Animatable.Text animation="pulse"
-                                                 easing="ease-out"
-                                                 iterationCount="infinite"
-                                                 style={styles.buttonText}>Login</Animatable.Text>
+                                    easing="ease-out"
+                                    iterationCount="infinite"
+                                    style={styles.buttonText}>Login</Animatable.Text>
                             </TouchableHighlight>
                             <TouchableHighlight style={styles.buttons}
-                                                onPress={this._getExperienceButtonOnPress(AR_NAVIGATOR_TYPE)}
-                                                underlayColor={'#68a0ff'} >
+                                onPress={this._getExperienceButtonOnPress(AR_NAVIGATOR_TYPE)}
+                                underlayColor={'#68a0ff'} >
                                 <Animatable.Text animation="pulse"
-                                                 easing="ease-out"
-                                                 iterationCount="infinite"
-                                                 style={styles.buttonText}>Demo</Animatable.Text>
+                                    easing="ease-out"
+                                    iterationCount="infinite"
+                                    style={styles.buttonText}>Demo</Animatable.Text>
                             </TouchableHighlight>
                         </View>
                     </View>
@@ -120,21 +149,27 @@ export default class Landing extends Component {
     }
 
     // Returns the ViroARSceneNavigator which will start the AR experience
+    // NOTE: make refresh button that refreshes the entire scence. BC once you switch to the Customize scence and return to ARScene,
+    //You are are to render the models again ( seems like you only track to images on Andriod haven't tested on IOS)
     _getARNavigator() {
         return (
-            <View style={{flex: 1}}>
+            <View style={{ flex: 1 }}>
                 <ViroARSceneNavigator {...this.state.sharedProps}
                                       initialScene={{scene: ARScene}}
+                                      numberOfTrackedImages={5}
                                       ref={this._setARNavigatorRef}
                 />
-                <View style={{position: 'absolute', backgroundColor:"#ffffff22", left: 30, right: 30, top: 30, alignItems: 'center'}}>
-                    <Text style={{fontSize:12, color:"#ffffff"}}>Tracking initialized.</Text>
-                </View>
+
+                <Status
+                    tracking={this.state.trackingActive}
+                    onPress={this._toggleTargeting}
+                />
+
                 <View style={{position: 'absolute',  left: 5, right: 0, bottom: 15}}>
                     <TouchableHighlight style={styles.back}
-                                        onPress={this._getExperienceButtonOnPress(LOGIN_NAVIGATOR_TYPE)}
-                                        underlayColor={'#00000000'} >
-                        <Image source={require ('../res/icon_left_w.png')} style={{height: 30, width: 40}}/>
+                        onPress={this._getExperienceButtonOnPress(LOGIN_NAVIGATOR_TYPE)}
+                        underlayColor={'#00000000'} >
+                        <Image source={require('../res/icon_left_w.png')} style={{ height: 30, width: 40 }} />
                     </TouchableHighlight>
                 </View>
 
@@ -147,6 +182,17 @@ export default class Landing extends Component {
                 </View>
             </View>
         );
+    }
+    _toggleStatus(){
+        if(!this.state.tracking){
+            this.setState({
+                tracking: true
+            });
+        }else{
+            this.setState({
+                tracking: false
+            });
+        }
     }
 
     // Returns the Customize Screen
@@ -172,15 +218,16 @@ export default class Landing extends Component {
     _getExperienceButtonOnPress(navigatorType) {
         return () => {
             this.setState({
-                navigator : navigatorType
+                navigator: navigatorType
             });
-            if(navigatorType === 'UNSET') {
+            if (navigatorType === 'UNSET') {
                 this.setState({
                     noneChecked: false,
                     homeIsChecked: false,
                     artIsChecked: false,
                     techIsChecked: false,
-                    educationIsChecked: false});
+                    educationIsChecked: false
+                });
             }
         }
     }
@@ -188,31 +235,70 @@ export default class Landing extends Component {
     // This function "exits" Viro by setting the navigatorType to UNSET.
     _exitViro() {
         this.setState({
-            navigator : UNSET
+            navigator: UNSET
         })
+    }
+    _checkIfTrackingCountExceeds(){
+        if(this.state.trackingCount >= 2){
+            let newState = {...this.state}
+            newState.trackingCount = 0;
+            newState.navigator = REFRESH_NAVIGATOR_TYPE;
+            this.setState(newState);
+
+            setTimeout( () => {
+                let newState = {...this.state}
+                newState.trackingCount = 0;
+                newState.navigator = AR_NAVIGATOR_TYPE;
+                this.setState(newState);
+            }, 1000 )
+        }else{
+            return;
+        }
+
+    }
+
+    _toggleTargeting() {
+        if (!this.state.trackingActive) {
+            let newState = {...this.state};
+            newState.trackingActive = true;
+            newState.trackingCount = newState.trackingCount + 1;
+            this.setState(newState);
+            fillAndRender();
+            this._checkIfTrackingCountExceeds();
+
+        }
+        else {
+            let newState = {...this.state};
+            newState.trackingActive = false;
+
+            this.setState(newState);
+            emptyTracker();
+
+        }
+
     }
 
     // Checkbox Function
     _checkBoxText = (topic) => {
-        topic === 'Home'?
+        topic === 'Home' ?
             this.setState({
-                homeIsChecked:!this.state.homeIsChecked
+                homeIsChecked: !this.state.homeIsChecked
             })
-            : topic === 'Technology'?
-            this.setState({
-                techIsChecked:!this.state.techIsChecked
-            })
-            : topic === 'Art'?
+            : topic === 'Technology' ?
                 this.setState({
-                    artIsChecked:!this.state.artIsChecked
+                    techIsChecked: !this.state.techIsChecked
                 })
-                : topic === 'Education'?
+                : topic === 'Art' ?
                     this.setState({
-                        educationIsChecked:!this.state.educationIsChecked
+                        artIsChecked: !this.state.artIsChecked
                     })
-                    : this.setState({
-                        noneChecked:!this.state.noneChecked
-                    });
+                    : topic === 'Education' ?
+                        this.setState({
+                            educationIsChecked: !this.state.educationIsChecked
+                        })
+                        : this.setState({
+                            noneChecked: !this.state.noneChecked
+                        });
     };
 
     // Screenshots

@@ -3,3 +3,28 @@ node_modules/*
 .idea/*
 src/utils/advision-AR-700418edc616.json
 
+# Xcode
+ios/Pods/GVRSDK/Libraries/libGVRSDK.a
+ios/Pods/
+
+src/ios/Pods/GVRSDK/Libraries/libGVRSDK.a
+src/ios/Pods/
+
+# BUCK
+buck-out/
+\.buckd/
+*.keystore
+
+# fastlane
+#
+# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
+# screenshots whenever they are needed.
+# For more information about the recommended setup visit:
+# https://docs.fastlane.tools/best-practices/source-control/
+
+*/fastlane/report.xml
+*/fastlane/Preview.html
+*/fastlane/screenshots
+
+# Bundle artifact
+*.jsbundle
