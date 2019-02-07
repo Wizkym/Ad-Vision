@@ -30,15 +30,13 @@ class Status extends Component {
             });
         } 
    
-    };
-
+    }
     _updateText = () => {
         let newState = {...this.state};
         newState.myText = "byeee";
         this.setState(newState);
 
-    };
-
+    }
     render() {
         return (
             <View style={{ position: 'absolute', backgroundColor: "#ffffff22", left: 30, right: 30, top: 30, alignItems: 'center' }}>

@@ -42,8 +42,8 @@ export default class Landing extends Component {
     constructor() {
         super();
         this.state = {
-            navigator : defaultNavigatorType,
-            sharedProps : sharedProps,
+            navigator: defaultNavigatorType,
+            sharedProps: sharedProps,
             hits: [],
             haveSavedMedia: false,
             noneChecked: false,
@@ -65,7 +65,7 @@ export default class Landing extends Component {
         this._exitViro = this._exitViro.bind(this);
         this._renderShareScreen = this._renderShareScreen.bind(this);
         this._setARNavigatorRef = this._setARNavigatorRef.bind(this);
-        this._checkBoxText =this._checkBoxText.bind(this);
+        this._checkBoxText = this._checkBoxText.bind(this);
         this._handlePress = this._handlePress.bind(this);
         this._takeScreenShot = this._takeScreenShot.bind(this);
         this._toggleTargeting = this._toggleTargeting.bind(this);
@@ -83,21 +83,21 @@ export default class Landing extends Component {
             return this._getARNavigator();
         } else if (this.state.navigator === SHARE) {
             return this._renderShareScreen();
-        }else if(this.state.navigator === REFRESH_NAVIGATOR_TYPE){
+        } else if (this.state.navigator === REFRESH_NAVIGATOR_TYPE) {
             return this._refreshScene();
         }
     }
 
-    _refreshScene(){
+    _refreshScene() {
         return (
-            <View style={styles.viroContainer} >
+            <View style={styles.viroContainer}>
                 <ScrollView style={styles.viroContainer} contentContainerStyle={styles.contentContainer}>
-                    <View style={styles.outer} >
-                        <View style={styles.inner} >
+                    <View style={styles.outer}>
+                        <View style={styles.inner}>
                             <Animatable.Text animation="slideInDown"
-                                iterationCount="infinite"
-                                direction="alternate"
-                                style={styles.titleText}>
+                                             iterationCount="infinite"
+                                             direction="alternate"
+                                             style={styles.titleText}>
                                 Refreshing AR Scene</Animatable.Text>
                         </View>
                     </View>
@@ -105,41 +105,42 @@ export default class Landing extends Component {
             </View>
         );
     }
+
     // Presents the user with a choice of an AR or VR experience
     _getExperienceSelector() {
         return (
-            <View style={styles.viroContainer} >
+            <View style={styles.viroContainer}>
                 <ScrollView style={styles.viroContainer} contentContainerStyle={styles.contentContainer}>
-                    <View style={styles.welcomeContainer} >
+                    <View style={styles.welcomeContainer}>
                         <Image
                             source={require('../res/vision.png')}
                             style={styles.welcomeImage}
                             fadeDuration={10}
                         />
                     </View>
-                    <View style={styles.outer} >
-                        <View style={styles.inner} >
+                    <View style={styles.outer}>
+                        <View style={styles.inner}>
                             <Animatable.Text animation="slideInDown"
-                                iterationCount="infinite"
-                                direction="alternate"
-                                style={styles.titleText}>
+                                             iterationCount="infinite"
+                                             direction="alternate"
+                                             style={styles.titleText}>
                                 Ad~Vision</Animatable.Text>
 
                             <TouchableHighlight style={styles.buttons}
-                                onPress={this._getExperienceButtonOnPress(LOGIN_NAVIGATOR_TYPE)}
-                                underlayColor={'#68a0ff'} >
+                                                onPress={this._getExperienceButtonOnPress(LOGIN_NAVIGATOR_TYPE)}
+                                                underlayColor={'#68a0ff'}>
                                 <Animatable.Text animation="pulse"
-                                    easing="ease-out"
-                                    iterationCount="infinite"
-                                    style={styles.buttonText}>Login</Animatable.Text>
+                                                 easing="ease-out"
+                                                 iterationCount="infinite"
+                                                 style={styles.buttonText}>Login</Animatable.Text>
                             </TouchableHighlight>
                             <TouchableHighlight style={styles.buttons}
-                                onPress={this._getExperienceButtonOnPress(AR_NAVIGATOR_TYPE)}
-                                underlayColor={'#68a0ff'} >
+                                                onPress={this._getExperienceButtonOnPress(AR_NAVIGATOR_TYPE)}
+                                                underlayColor={'#68a0ff'}>
                                 <Animatable.Text animation="pulse"
-                                    easing="ease-out"
-                                    iterationCount="infinite"
-                                    style={styles.buttonText}>Demo</Animatable.Text>
+                                                 easing="ease-out"
+                                                 iterationCount="infinite"
+                                                 style={styles.buttonText}>Demo</Animatable.Text>
                             </TouchableHighlight>
                         </View>
                     </View>
@@ -153,7 +154,7 @@ export default class Landing extends Component {
     //You are are to render the models again ( seems like you only track to images on Andriod haven't tested on IOS)
     _getARNavigator() {
         return (
-            <View style={{ flex: 1 }}>
+            <View style={{flex: 1}}>
                 <ViroARSceneNavigator {...this.state.sharedProps}
                                       initialScene={{scene: ARScene}}
                                       numberOfTrackedImages={5}
@@ -165,11 +166,11 @@ export default class Landing extends Component {
                     onPress={this._toggleTargeting}
                 />
 
-                <View style={{position: 'absolute',  left: 5, right: 0, bottom: 15}}>
+                <View style={{position: 'absolute', left: 5, right: 0, bottom: 15}}>
                     <TouchableHighlight style={styles.back}
-                        onPress={this._getExperienceButtonOnPress(LOGIN_NAVIGATOR_TYPE)}
-                        underlayColor={'#00000000'} >
-                        <Image source={require('../res/icon_left_w.png')} style={{ height: 30, width: 40 }} />
+                                        onPress={this._getExperienceButtonOnPress(LOGIN_NAVIGATOR_TYPE)}
+                                        underlayColor={'#00000000'}>
+                        <Image source={require('../res/icon_left_w.png')} style={{height: 30, width: 40}}/>
                     </TouchableHighlight>
                 </View>
 
@@ -183,12 +184,13 @@ export default class Landing extends Component {
             </View>
         );
     }
-    _toggleStatus(){
-        if(!this.state.tracking){
+
+    _toggleStatus() {
+        if (!this.state.tracking) {
             this.setState({
                 tracking: true
             });
-        }else{
+        } else {
             this.setState({
                 tracking: false
             });
@@ -209,7 +211,7 @@ export default class Landing extends Component {
     );
 
     // Helper function called while initializing <ViroARSceneNavigator>
-    _setARNavigatorRef(ARNavigator){
+    _setARNavigatorRef(ARNavigator) {
         this._arNavigator = ARNavigator;
     }
 
@@ -238,20 +240,21 @@ export default class Landing extends Component {
             navigator: UNSET
         })
     }
-    _checkIfTrackingCountExceeds(){
-        if(this.state.trackingCount >= 2){
+
+    _checkIfTrackingCountExceeds() {
+        if (this.state.trackingCount >= 2) {
             let newState = {...this.state}
             newState.trackingCount = 0;
             newState.navigator = REFRESH_NAVIGATOR_TYPE;
             this.setState(newState);
 
-            setTimeout( () => {
+            setTimeout(() => {
                 let newState = {...this.state}
                 newState.trackingCount = 0;
                 newState.navigator = AR_NAVIGATOR_TYPE;
                 this.setState(newState);
-            }, 1000 )
-        }else{
+            }, 1000)
+        } else {
             return;
         }
 
@@ -266,8 +269,7 @@ export default class Landing extends Component {
             fillAndRender();
             this._checkIfTrackingCountExceeds();
 
-        }
-        else {
+        } else {
             let newState = {...this.state};
             newState.trackingActive = false;
 
@@ -285,26 +287,26 @@ export default class Landing extends Component {
                 homeIsChecked: !this.state.homeIsChecked
             })
             : topic === 'Technology' ?
+            this.setState({
+                techIsChecked: !this.state.techIsChecked
+            })
+            : topic === 'Art' ?
                 this.setState({
-                    techIsChecked: !this.state.techIsChecked
+                    artIsChecked: !this.state.artIsChecked
                 })
-                : topic === 'Art' ?
+                : topic === 'Education' ?
                     this.setState({
-                        artIsChecked: !this.state.artIsChecked
+                        educationIsChecked: !this.state.educationIsChecked
                     })
-                    : topic === 'Education' ?
-                        this.setState({
-                            educationIsChecked: !this.state.educationIsChecked
-                        })
-                        : this.setState({
-                            noneChecked: !this.state.noneChecked
-                        });
+                    : this.setState({
+                        noneChecked: !this.state.noneChecked
+                    });
     };
 
     // Screenshots
     _takeScreenShot() {
         this._arNavigator.sceneNavigator.takeScreenshot("vision_still_" + this.state.screenshot_count, false)
-            .then((retDict)=>{
+            .then((retDict) => {
                 if (!retDict.success) {
                     if (retDict.errorCode === ViroConstants.RECORD_ERROR_NO_PERMISSION) {
                         alert("Please allow camera permissions!");
@@ -314,7 +316,7 @@ export default class Landing extends Component {
                 this.setState({
                     imgUrl: "file://" + retDict.url,
                     screenshot_count: currentCount,
-                    navigator : SHARE
+                    navigator: SHARE
                 });
                 alert('Screenshot Check');
             })
@@ -325,39 +327,42 @@ export default class Landing extends Component {
 
     // Share Screen
     _renderShareScreen() {
-        return(
+        return (
             <View style={styles.shareScreenContainerTransparent}>
-                <Image source={{uri:this.state.imgUrl}} style={styles.backgroundImage} resizeMethod={'resize'} />
+                <Image source={{uri: this.state.imgUrl}} style={styles.backgroundImage} resizeMethod={'resize'}/>
 
                 {/* Close button -> Takes user back to AR screen */}
-                <View style={{position:'absolute', left:20, top:20, width:30, height:30}}>
+                <View style={{position: 'absolute', left: 20, top: 20, width: 30, height: 30}}>
                     <TouchableHighlight style={styles.back}
                                         onPress={this._getExperienceButtonOnPress(AR_NAVIGATOR_TYPE)}
                                         underlayColor={'#00000000'}>
                         <View>
-                            <Image source={require('../res/btn_close.png')} style={{position: 'absolute', height: 23, width: 23}}/>
+                            <Image source={require('../res/btn_close.png')}
+                                   style={{position: 'absolute', height: 23, width: 23}}/>
                         </View>
                     </TouchableHighlight>
                 </View>
 
                 {/* Share button -> For users to share screenshots */}
-                <View style={{position:'absolute', left:20, bottom:20, width:40, height:40}}>
+                <View style={{position: 'absolute', left: 20, bottom: 20, width: 40, height: 40}}>
                     <TouchableHighlight style={styles.back}
                                         onPress={this._openShareActionSheet}
                                         underlayColor={'#00000000'}>
                         <View>
-                            <Image source={require('../res/btn_share.png')} style={{position: 'absolute', height: 35, width: 35}}/>
+                            <Image source={require('../res/btn_share.png')}
+                                   style={{position: 'absolute', height: 35, width: 35}}/>
                         </View>
                     </TouchableHighlight>
                 </View>
 
                 {/* Analytics Button -> For users to analyze images using Cloud Vision API*/}
-                <View style={{position:'absolute', right:20, bottom:20, width:40, height:40}}>
+                <View style={{position: 'absolute', right: 20, bottom: 20, width: 40, height: 40}}>
                     <TouchableHighlight style={styles.back}
                                         onPress={this._handlePress}
                                         underlayColor={'#00000000'}>
                         <View>
-                            <Image source={require('../res/analytics-128.png')} style={{position: 'absolute', height: 35, width: 35}}/>
+                            <Image source={require('../res/analytics-128.png')}
+                                   style={{position: 'absolute', height: 35, width: 35}}/>
                         </View>
                     </TouchableHighlight>
                 </View>
@@ -376,14 +381,14 @@ export default class Landing extends Component {
         fetch('http://192.168.0.30:3085/', {
             method: 'PUT',
             body: formData
-            })
+        })
             .then(response => response.json())
             .then((response) => alert(response.description))
             .catch(err => alert(err));
     };
 
     // Share function to enable users share screenshots
-    _openShareActionSheet = async ()  => {
+    _openShareActionSheet = async () => {
         await Share.open({
             subject: "#AdVision",
             message: "#AdVision",

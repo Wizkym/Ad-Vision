@@ -42,8 +42,7 @@ class TextTester extends Component {
         let newState = { ...this.state };
         newState.text = "eedededededewwdwwwe";
         this.setState(newState);
-    };
-
+    }
     render() {
 
         return (
