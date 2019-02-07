@@ -8,7 +8,7 @@ const customConfigId = '###';
 function searchQuery() {
   let options = {
     url:
-      `https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?q=${searchTerms}&customconfig=9760f4dc-5d3e-47a8-8797-91ded37df33f`,
+      `https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?q=${encodeURIComponent(query)}&customconfig=###`,
   
     headers: {
       'Ocp-Apim-Subscription-Key' : 'e8d2a1ed1c8f49639d03b3f7eff8d85d'
