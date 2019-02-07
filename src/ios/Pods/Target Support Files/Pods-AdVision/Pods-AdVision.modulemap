@@ -1,0 +1,6 @@
+framework module Pods_AdVision {
+  umbrella header "Pods-AdVision-umbrella.h"
+
+  export *
+  module * { export * }
+}
