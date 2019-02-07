@@ -40,9 +40,12 @@
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		4046FEB495834AD88C7334F4 /* Orbitron-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E39679E02E304BE1BBD9BE35 /* Orbitron-Black.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		99E762F497B381D7F214004C /* Pods_AdVision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9B34E90DEFA400BD0036A3 /* Pods_AdVision.framework */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
-		B57FFBEA2209E69800FF6D67 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B57FFBE92209E69800FF6D67 /* ExternalAccessory.framework */; };
+		B2103C72EBBBEAB50C8F1370 /* Pods_AdVision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 219C492AB2DEC36F6DF16EB6 /* Pods_AdVision.framework */; };
+		B57FFBEA2209E69800FF6D67 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B57FFBE92209E69800FF6D67 /* ExternalAccessory.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		B57FFC8B220B3FDF00FF6D67 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B57FFC8A220B3FDF00FF6D67 /* Social.framework */; };
+		B57FFC8D220B3FF100FF6D67 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B57FFC8C220B3FF100FF6D67 /* MessageUI.framework */; };
+		B57FFCF7220B532500FF6D67 /* libRNShare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B57FFCF6220B509100FF6D67 /* libRNShare.a */; };
 		D7CF3F604E524CD3A5E022F8 /* Orbitron-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EB993B70F4048AD8AE9D2BC /* Orbitron-Medium.ttf */; };
 /* End PBXBuildFile section */
 
@@ -320,6 +323,13 @@
 			remoteGlobalIDString = 358F4ED71D1E81A9004DF814;
 			remoteInfo = RCTBlob;
 		};
+		B57FFCF5220B509100FF6D67 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B57FFCF1220B509000FF6D67 /* RNShare.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNShare;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -342,21 +352,24 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = AdVision/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = AdVision/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		219C492AB2DEC36F6DF16EB6 /* Pods_AdVision.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdVision.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E47B1E0B4A5D006451C7 /* AdVision-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AdVision-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* AdVision-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AdVision-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		35DFFF887A0DA7DF4B67624E /* Pods-AdVision.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdVision.release.xcconfig"; path = "Target Support Files/Pods-AdVision/Pods-AdVision.release.xcconfig"; sourceTree = "<group>"; };
 		46167F00328E4B4E802F1832 /* Orbitron-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Orbitron-Bold.ttf"; path = "../assets/fonts/Orbitron-Bold.ttf"; sourceTree = "<group>"; };
-		4DDF50AFB81C7962D7B80584 /* Pods-AdVision.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdVision.debug.xcconfig"; path = "Target Support Files/Pods-AdVision/Pods-AdVision.debug.xcconfig"; sourceTree = "<group>"; };
 		4EB993B70F4048AD8AE9D2BC /* Orbitron-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Orbitron-Medium.ttf"; path = "../assets/fonts/Orbitron-Medium.ttf"; sourceTree = "<group>"; };
-		5C9B34E90DEFA400BD0036A3 /* Pods_AdVision.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdVision.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
+		63410FBF408B3E8B0D2DED22 /* Pods-AdVision.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdVision.debug.xcconfig"; path = "Target Support Files/Pods-AdVision/Pods-AdVision.debug.xcconfig"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
-		864D1DE54BBAA2B728D66C16 /* Pods-AdVision.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdVision.release.xcconfig"; path = "Target Support Files/Pods-AdVision/Pods-AdVision.release.xcconfig"; sourceTree = "<group>"; };
 		A62F75880AC14763925BE77D /* Orbitron-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Orbitron-Regular.ttf"; path = "../assets/fonts/Orbitron-Regular.ttf"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		B57FFBE92209E69800FF6D67 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		B57FFBEB2209E69800FF6D67 /* AdVision.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = AdVision.entitlements; path = AdVision/AdVision.entitlements; sourceTree = "<group>"; };
+		B57FFC8A220B3FDF00FF6D67 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		B57FFC8C220B3FF100FF6D67 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		B57FFCF1220B509000FF6D67 /* RNShare.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNShare.xcodeproj; path = "../node_modules/react-native-share/ios/RNShare.xcodeproj"; sourceTree = "<group>"; };
 		E39679E02E304BE1BBD9BE35 /* Orbitron-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Orbitron-Black.ttf"; path = "../assets/fonts/Orbitron-Black.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -373,6 +386,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B57FFCF7220B532500FF6D67 /* libRNShare.a in Frameworks */,
+				B57FFC8D220B3FF100FF6D67 /* MessageUI.framework in Frameworks */,
+				B57FFC8B220B3FDF00FF6D67 /* Social.framework in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -386,7 +402,7 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
-				99E762F497B381D7F214004C /* Pods_AdVision.framework in Frameworks */,
+				B2103C72EBBBEAB50C8F1370 /* Pods_AdVision.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,9 +552,11 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B57FFC8C220B3FF100FF6D67 /* MessageUI.framework */,
+				B57FFC8A220B3FDF00FF6D67 /* Social.framework */,
 				B57FFBE92209E69800FF6D67 /* ExternalAccessory.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
-				5C9B34E90DEFA400BD0036A3 /* Pods_AdVision.framework */,
+				219C492AB2DEC36F6DF16EB6 /* Pods_AdVision.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -546,8 +564,8 @@
 		3FFD85B2EE3E11873E74C1D5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4DDF50AFB81C7962D7B80584 /* Pods-AdVision.debug.xcconfig */,
-				864D1DE54BBAA2B728D66C16 /* Pods-AdVision.release.xcconfig */,
+				63410FBF408B3E8B0D2DED22 /* Pods-AdVision.debug.xcconfig */,
+				35DFFF887A0DA7DF4B67624E /* Pods-AdVision.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -573,6 +591,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				B57FFCF1220B509000FF6D67 /* RNShare.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -653,6 +672,14 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
+		B57FFCF2220B509000FF6D67 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B57FFCF6220B509100FF6D67 /* libRNShare.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -678,15 +705,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "AdVision" */;
 			buildPhases = (
-				6FF4DB8A6D7DF8E175814B02 /* [CP] Check Pods Manifest.lock */,
+				58F5CCD265B2244485F0CB97 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				EE9E22CDD86864B0F60F366E /* Execute Ngrok */,
 				86D3EE738B31CC9DF8F3F5B4 /* Copy ngrok endpoint */,
-				466E77311A76FBB6241A7BC5 /* [CP] Embed Pods Frameworks */,
-				1156F546840C174C40670546 /* [CP] Copy Pods Resources */,
+				5059322AB153ADBCC07B2061 /* [CP] Embed Pods Frameworks */,
+				6F7286322225B2BFC355A406 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -826,6 +853,10 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+				},
+				{
+					ProductGroup = B57FFCF2220B509000FF6D67 /* Products */;
+					ProjectRef = B57FFCF1220B509000FF6D67 /* RNShare.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1098,6 +1129,13 @@
 			remoteRef = ADBDB9261DFEBF0700ED6528 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		B57FFCF6220B509100FF6D67 /* libRNShare.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNShare.a;
+			remoteRef = B57FFCF5220B509100FF6D67 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -1151,37 +1189,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
-		};
-		1156F546840C174C40670546 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AdVision/Pods-AdVision-resources.sh",
-				"${PODS_ROOT}/GVRSDK/Resources/CardboardSDK.bundle",
-				"${PODS_ROOT}/GVRSDK/Resources/GoogleKitCore.bundle",
-				"${PODS_ROOT}/GVRSDK/Resources/GoogleKitDialogs.bundle",
-				"${PODS_ROOT}/GVRSDK/Resources/GoogleKitHUD.bundle",
-				"${PODS_ROOT}/GVRSDK/Resources/MaterialRobotoFontLoader.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CardboardSDK.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleKitCore.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleKitDialogs.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleKitHUD.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialRobotoFontLoader.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AdVision/Pods-AdVision-resources.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1197,7 +1205,7 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		466E77311A76FBB6241A7BC5 /* [CP] Embed Pods Frameworks */ = {
+		5059322AB153ADBCC07B2061 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1227,7 +1235,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AdVision/Pods-AdVision-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6FF4DB8A6D7DF8E175814B02 /* [CP] Check Pods Manifest.lock */ = {
+		58F5CCD265B2244485F0CB97 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1247,6 +1255,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6F7286322225B2BFC355A406 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AdVision/Pods-AdVision-resources.sh",
+				"${PODS_ROOT}/GVRSDK/Resources/CardboardSDK.bundle",
+				"${PODS_ROOT}/GVRSDK/Resources/GoogleKitCore.bundle",
+				"${PODS_ROOT}/GVRSDK/Resources/GoogleKitDialogs.bundle",
+				"${PODS_ROOT}/GVRSDK/Resources/GoogleKitHUD.bundle",
+				"${PODS_ROOT}/GVRSDK/Resources/MaterialRobotoFontLoader.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CardboardSDK.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleKitCore.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleKitDialogs.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleKitHUD.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialRobotoFontLoader.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AdVision/Pods-AdVision-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		86D3EE738B31CC9DF8F3F5B4 /* Copy ngrok endpoint */ = {
@@ -1415,7 +1453,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4DDF50AFB81C7962D7B80584 /* Pods-AdVision.debug.xcconfig */;
+			baseConfigurationReference = 63410FBF408B3E8B0D2DED22 /* Pods-AdVision.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AdVision/AdVision.entitlements;
@@ -1434,6 +1472,7 @@
 				INFOPLIST_FILE = AdVision/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1443,13 +1482,14 @@
 				PRODUCT_NAME = AdVision;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = arm64;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 864D1DE54BBAA2B728D66C16 /* Pods-AdVision.release.xcconfig */;
+			baseConfigurationReference = 35DFFF887A0DA7DF4B67624E /* Pods-AdVision.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AdVision/AdVision.entitlements;
@@ -1468,6 +1508,7 @@
 				INFOPLIST_FILE = AdVision/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1477,6 +1518,7 @@
 				PRODUCT_NAME = AdVision;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = arm64;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -1678,6 +1720,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				VALID_ARCHS = arm64;
 			};
 			name = Debug;
 		};
@@ -1723,8 +1766,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = arm64;
 			};
 			name = Release;
 		};

@@ -68,7 +68,7 @@ class VisionAR extends Component {
                 <ViroARImageMarker target={"power"} ><ViroBox position={[0, .5, 0]} scale={[.2, .2, .2]} materials={["power"]} />
                 </ViroARImageMarker>
                 {/*<ViroARImageMarker target={"targetThree"} ><ViroBox position={[0, .5, 0]} scale={[.2, .2, .2]} materials={["shop"]} />*/}
-                <ViroARImageMarker target={"shop"} >
+                {/*<ViroARImageMarker target={"shop"} >
                     {Fountain([0,0,0], 3000, 'fxparttinyglowy.png')}
                     <ViroVideo
                         source={require('../res/lights.mp4')}
@@ -80,7 +80,7 @@ class VisionAR extends Component {
                        transformBehaviors={["billboardX"]}
 
                     />
-                </ViroARImageMarker>
+                </ViroARImageMarker>*/}
             </ViroARScene>
         );
     }

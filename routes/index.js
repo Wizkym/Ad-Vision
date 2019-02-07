@@ -1,21 +1,21 @@
 const express = require('express');
 const router = express.Router();
 
-router.get("/", (req, res) => {
-    detectText()
+router.put("/", (req, res) => {
+    console.log("POSTING..");
+    detectText('./src/js/res/kohls.jpg')
         .then((data) => {
             res.send(data);
         })
         .catch(err => console.log(err));
 });
 
-async function detectText() {
+async function detectText(fileName) {
+    console.log("IM HEREEEE...!!\n" + fileName);
     // [START vision_text_detection]
     const vision = require('@google-cloud/vision');
     // Creates a client
     const client = new vision.ImageAnnotatorClient();
-    const fileName = './src/js/res/kohls.jpg';
-
     // Performs text detection on the local file
     const [result] = await client.textDetection(fileName);
     const detections = result.textAnnotations;

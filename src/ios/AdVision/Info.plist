@@ -52,6 +52,13 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>whatsapp</string>
+		<string>mailto</string>
+	</array>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>$(PRODUCT_NAME) wants to save photos</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Camera is used to scan the QR code of your VR headset.</string>
 	<key>UIAppFonts</key>
