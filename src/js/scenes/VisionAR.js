@@ -28,7 +28,9 @@ import {
     ViroText,
     ViroButton,
     ViroFlexView,
-    ViroNode
+    ViroNode,
+    Viro3DObject,
+    ViroAmbientLight,
 } from 'react-viro';
 
 import { runTestEmitter, renderables } from '../helpers/tester';
@@ -156,29 +158,117 @@ class VisionAR extends Component {
 
             //testing drag plane
             <ViroNode key={this.dummyKeyGen}
-                dragPlane={{
-                    planePoint: [0, 0, 0],
-                    planeNormal: [0, 0, 0],
-                    maxDistance: 10
-                }}
+            dragPlane={{
+                planePoint: [0, 0, 0],
+                planeNormal: [0, 0, 0],
+                maxDistance: 10
+            }}
 
-            >
-                <ViroARImageMarker target={target} key={this.dummyKeyGen} onAnchorFound={
-                    () => this.setState({
-                        canplayAnims: true
-                    })}  >
+        >
+            <ViroARImageMarker target={target} key={this.dummyKeyGen} onAnchorFound={
+                () => this.setState({
+                    canplayAnims: true
+                })}  >
 
-                    <ViroNode key={target + "1"} position={[0, 0, 0]}>
-                        {this.state.canplayAnims ? particle.Firework([0, 0, 0], 4200, "fxparttinyglowy.png", false) : null}
-                        <ViroBox position={[0, 0, 0]}
-                            opacity={0.2}
-                            scale={[0.0, 0.0, 0.0]}
-                            materials={["apple"]}
-                            animation={{
-                                name: 'animateBlock', delay: 820, run: this.state.canplayAnims
-                            }}
+                <ViroNode key={target + "1"} position={[0, 0, 0]}>
+                    {this.state.canplayAnims ? particle.Firework([0, 0, 0], 4200, "fxparttinyglowy.png", false) : null}
+                    <ViroBox position={[0, 0, 0]}
+                        opacity={0.2}
+                        scale={[0.0, 0.0, 0.0]}
+                        materials={["apple"]}
+                        animation={{
+                            name: 'animateBlock', delay: 820, run: this.state.canplayAnims
+                        }}
+                    />
+
+                </ViroNode>
+                <ViroNode
+                    key={target + "2"}
+                    position={[0, 0.05, 0]}
+                    opacity={0}
+                    animation={{
+                        name: 'animateDown', delay: 1000, run: this.state.canplayAnims
+                    }}>
+                    <ViroFlexView
+                        rotation={[-90, 0, 0]}
+                        height={0.05}
+                        width={0.05}
+                    >
+                        <ViroImage
+                            height={0.05}
+                            width={0.05}
+                            opacity={1}
+                            placeholderSource={require("../res/coca-cola-can.png")}
+                            source={require("../res/coca-cola-can.png")}
+
                         />
-                    </ViroNode>
+
+                    </ViroFlexView>
+                </ViroNode>
+                <ViroNode
+                    key={target + "3"}
+                    position={[0, 0.05, 0]}
+                    opacity={0}
+                    animation={{
+                        name: 'animateRight', delay: 1000, run: this.state.canplayAnims
+                    }}
+                >
+                    <ViroFlexView
+                        rotation={[-90, 0, 0]}
+                        height={0.05}
+                        width={0.05}>
+                        <ViroVideo
+                            height={0.1}
+                            width={0.1}
+                            source={require('../res/lights.mp4')}
+                            loop={true}
+                            materials={["shop"]}
+                        />
+
+                    </ViroFlexView>
+                </ViroNode>
+                <ViroNode
+                    key={target + "3"}
+                    position={[0, 0, 0]}
+                    opacity={0}
+
+                    animation={{
+                        name: 'animateUp', delay: 1000, run: this.state.canplayAnims
+                    }}
+                >
+
+                    <ViroText
+                        width={14} height={8}
+                        rotation={[-90, 0, 0]}
+                        text="The Coca-Cola Company (NYSE: KO) is a total beverage company, offering over 500 brands in more than 200 countries and territories. In addition to the company’s Coca-Cola brands, our portfolio includes some of the world’s most valuable beverage brands, such as AdeS soy-based beverages, Ayataka green tea, Dasani waters, Del Valle juices and nectars, Fanta, Georgia coffee, Gold Peak teas and coffees, Honest Tea, innocent smoothies and juices, Minute Maid juices, Powerade sports drinks, Simply juices, smartwater, Sprite, vitaminwater and ZICO coconut water."
+                        color="#ffffff"
+                        scale={[.03, .03, .03]}
+                        style={{ fontFamily: "Arial", fontSize: 40, fontWeight: "400", fontStyle: "normal", color: "#ffffff" }}
+                    />
+
+
+                </ViroNode>
+                <ViroNode>
+                    <ViroAmbientLight color="#ffffff" />
+
+                    <Viro3DObject
+                        source={require("../res/models/coke/cokeee.obj")}
+                        resources={[require('../res/models/coke/cokeee.mtl'),
+                        require('../res/models/coke/Coca-Cola-01.jpg')
+                    ]}
+                        highAccuracyEvents={true}
+                        position={[0, 0,0 ]}
+                        scale={[0.05,0.05,0.05]}
+                        rotation={[90, 0, 0]}
+                        type="OBJ"
+                        animation={{
+                            name: 'animateModel', delay: 1000, run: this.state.canplayAnims
+                        }}
+                        
+                        />
+
+
+                </ViroNode>
                 </ViroARImageMarker>
             </ViroNode>
 
@@ -197,12 +287,8 @@ class VisionAR extends Component {
             <ViroARScene onTrackingUpdated={this._onInitialized} >
                 {this.checkIfRenderablesEmpty()}
                 {this.checkifRenderablesFilled()}
-
                 {anims.registerAll()}
                 {this.state.canRenderARComponents ? this.grabRenderables() : null}
-                <TextTester
-                    onClick={this.bake}
-                />
             </ViroARScene>
         );
     }
