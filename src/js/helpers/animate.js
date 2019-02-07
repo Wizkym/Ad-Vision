@@ -20,6 +20,47 @@ export default {
                 easing: "Bounce",
                 duration: 1000
             },
+            animateRight:{
+                properties:{
+                    positionX: 0.09,
+                    opacity: 1.0
+                },
+                easing: "Bounce",
+                duration: 800
+            },
+            animateDown:{
+                properties:{
+                    positionZ : 0.09,
+                    opacity: 1.0
+                },
+                easing: "Bounce",
+                duration: 800
+            },
+            animateUp:{
+                properties:{
+                    positionZ : -0.09,
+                    opacity: 1.0
+                },
+                easing: "Bounce",
+                duration: 800
+            },
+            animateDownText:{
+                properties:{
+                    positionZ : 0.13,
+                    opacity: 1.0
+                },
+                easing: "Bounce",
+                duration: 800
+            },
+            animateModel:{
+                properties:{
+                    positionZ : -0.12,
+                    positionX: 0.12,
+                    opacity: 1.0
+                },
+                easing: "Bounce",
+                duration: 800
+            },
             animateOpacity1: {
                 properties: {
                     scaleX: 0.01,

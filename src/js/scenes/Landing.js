@@ -9,7 +9,7 @@ import {
 
 import Customize from './Customize';
 import styles from '../../assets/styles/styles';
-import Share from 'react-native-share';
+/* import Share from 'react-native-share'; */
 import Video from 'react-native-video';
 import {
     ViroARSceneNavigator,
@@ -388,13 +388,13 @@ export default class Landing extends Component {
     };
 
     // Share function to enable users share screenshots
-    _openShareActionSheet = async () => {
+/* /    _openShareActionSheet = async () => {
         await Share.open({
             subject: "#AdVision",
             message: "#AdVision",
             url: this.state.imgUrl,
             type: "image/png"
-        });
-    }
+         });
+    } */
 
 }
