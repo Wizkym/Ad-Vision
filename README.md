@@ -9,18 +9,23 @@ Travis CI Status\
 ## Tools:
 
 * ViroReact
+* React Native
 * MongoDB
 * Express
 * Node.js
 * GraphQL
+* Cloud Vision API
+* AWS Product Advertising API
 
 ## Team Members & Roles
 
-* Kelvin Jones || [Wizkym](https://github.com/Wizkym) || Authentication + database setup
-* George Rincon || [grincon0](https://github.com/grincon0) || Unity + Wikitude Development
-* David Baker || [DavidDBaker](https://github.com/DavidDBaker) || Api integration + UI
+* Kelvin Jones || [Wizkym](https://github.com/Wizkym) || Viro-React implementation + Cloud Vision API + 3D component creation
+* George Rincon || [grincon0](https://github.com/grincon0) || Database implementation + ParticleSFX & Component Development
+* David Baker || [DavidDBaker](https://github.com/DavidDBaker) || 3D component testing + AWS Product Advertising API
 
 ## Trello
-![Trello](/assets/images/trello.png)
+![Trello](/js/res/trello.png)
 
 ## Wireframe
+![Layout](/js/res/wire.png)
+
