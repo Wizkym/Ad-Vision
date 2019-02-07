@@ -62,3 +62,5 @@ buck-out/
 
 # Google Cloud Console
 src/utils/advision-AR-700418edc616.json
+ios/ngrokendpoint.txt
+
