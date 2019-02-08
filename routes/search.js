@@ -2,8 +2,8 @@
 
 const request = require('request');
 
-const apiKey = 'e8d2a1ed1c8f49639d03b3f7eff8d85d';
-const customConfigId = '9760f4dc-5d3e-47a8-8797-91ded37df33f';
+const apiKey = 'key';
+const customConfigId = 'customConfigId';
 let mySnippet = '';
 
 function searchQuery (query) {
@@ -12,7 +12,7 @@ function searchQuery (query) {
       `https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?q=${encodeURIComponent(query)}&customconfig=${customConfigId}`,
 
     headers: {
-      'Ocp-Apim-Subscription-Key' : 'e8d2a1ed1c8f49639d03b3f7eff8d85d'
+      'Ocp-Apim-Subscription-Key' : 'key'
     }
   };
   request(options, (error, response, body) =>{
