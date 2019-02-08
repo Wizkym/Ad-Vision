@@ -218,8 +218,8 @@ class VisionAR extends Component {
                             width={0.05}
                         >
                             <ViroImage
-                                height={0.2}
-                                width={0.4}
+                                height={0.1}
+                                width={0.3}
                                 opacity={1}
                                 placeholderSource={require("../res/kohlsaldi.jpg")}
                                 source={require("../res/kohlsaldi.jpg")}
