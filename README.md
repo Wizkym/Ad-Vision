@@ -21,8 +21,8 @@ Travis CI Status\
 * George Rincon || [grincon0](https://github.com/grincon0) || ParticleSFX & 3D Component Development
 * David Baker || [DavidDBaker](https://github.com/DavidDBaker) || 3D component testing + Bing Web Search API
 
-## Demo
-![Trello](src/assets/images/demo.jpeg)
+## Screenshot
+<img src="https://github.com/Wizkym/Ad-Vision/blob/master/src/assets/images/demo.jpeg" width="256" height="400" title="Bingo">
 
 ## Trello
 ![Trello](src/js/res/trello.png)
